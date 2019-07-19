@@ -1,0 +1,88 @@
+
+
+<!-- 로그인 템플릿 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login - CocoonMola!</title>
+</head>
+<body>
+  <main>
+    <h2>Login</h2>
+    {% if user.is_authenticated %}
+      <!-- 유저명(ID) 출력 -->
+      환영합니다 {{ user.username }}님!
+      <p><a href="https://www.cocoonmola.com/recorder/logout">logout</a></p>
+
+
+      point 적립 테스트
+      <form action = "/recorder/get_point/" method="post">
+          {% csrf_token %}
+          <button name="get_p" value="{{user.username}}">5000 point 구매</button>
+      </form>
+
+      filter1 활성화 테스트<br><br>
+
+      <form action = "/recorder/buy_filter1/" method="post">
+    <button name="filter_choice" value="{{user.username}}">Filter1 구매</button>
+</form>
+
+<br><br><br>
+
+
+
+
+
+
+
+      나의 filter list 보기<br>
+             {% if user.filter1 %}
+         filter1 : 활성화
+       {% else %}
+         filter1 : 비활성화
+       {% endif %}
+
+       {% if user.filter2 %}
+         filter2 : 활성화
+       {% else %}
+         filter2 : 비활성화
+       {% endif %}
+
+       {% if user.filter3 %}
+         filter3 : 활성화
+       {% else %}
+         filter3 : 비활성화
+       {% endif %}
+
+       {% if user.filter4 %}
+         filter4 : 활성화
+       {% else %}
+         filter4 : 비활성화
+       {% endif %}
+
+       {% if user.filter5 %}
+         filter5 : 활성화
+       {% else %}
+         filter5 : 비활성화
+       {% endif %}
+
+       {% if user.filter6 %}
+         filter6 : 활성화
+       {% else %}
+         filter6 : 비활성화
+       {% endif %}
+
+
+    {% else %}
+      <p>You are not logged in</p>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form>
+     {% endif %}
+  </main>
+</body>
+</html>
+~
