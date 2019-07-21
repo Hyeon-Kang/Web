@@ -12,3 +12,5 @@ var app = http.createServer(function(request,response){
   response.end(fs.readFileSync(__dirname + url));
 });
 app.listen(3000);
+
+// 원본 : 생활코딩/module/3549/21032
