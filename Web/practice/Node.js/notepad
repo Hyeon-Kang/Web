@@ -1,0 +1,18 @@
+ubuntu 서버 16.04 LTS
+
+먼저 서버에 nodejs와 npm(nodejs management tool) 설치
+
+sudo apt update
+sudo apt install nodejs
+sudo apt install npm
+
+nodejs -v (버전 확인)
+
+firewalld 로 방화벽을 제어한다 가정
+
+firewalld-cmd --permenant --add-port=(원하는 포트 num)/tcp
+firewalld-cmd --reload (방화벽 정책 갱신)
+
+main.js와 index.html등 핵심 요속 위치한 장소로 이동
+
+nodejs main.js (서버 시동)
