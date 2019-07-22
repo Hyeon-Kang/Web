@@ -1,0 +1,12 @@
+190722
+
+protocol://host(domain):port/path?query string
+
+protocol : http, tcp 등 통신 방식 명시
+host(domain) : 도메인 네임
+port : 통신 port 명시
+path : 어느 디렉토리의 어느 파일인지 명시
+query string : '?'로 시작하며 값과 값은 &로 구분한다.
+또한 값의 이름과 값은 '=' 로  구분한다.
+
+http://opentutorials.org:3000/main?id=HTML&aasdsa
