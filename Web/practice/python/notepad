@@ -22,3 +22,20 @@ python3 example.py 이렇게 불편하게 명시해주어야 함.
 이렇게 해도 실행이 가능하다.
 
 권한 변경을 요구할 수도 있음.
+
+
+apache  CGI - python
+
+이와 같이 연동하려면 아파치의 root 디렉토리에서
+python 스크립트를 인식할 수 있도록 설정해야한다.
+
+default page 기준 (000-default.conf) 설명
+
+기본 VirtualHost 항목에서
+
+DocumentRoot 디렉토리 설정 아랫줄에 다음과 같이 추가한다.
+
+<Directory /root와 같은 경로?
+      AddHandler cgi-script .py  // 확장자가 .py인 경우 cgi 스크립터로 실행 명시
+      Options ExecCGI  // CGI로 실행하는 것을 허용
+</Directory>
