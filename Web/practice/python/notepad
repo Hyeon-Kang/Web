@@ -39,3 +39,54 @@ DocumentRoot 디렉토리 설정 아랫줄에 다음과 같이 추가한다.
       AddHandler cgi-script .py  // 확장자가 .py인 경우 cgi 스크립터로 실행 명시
       Options ExecCGI  // CGI로 실행하는 것을 허용
 </Directory>
+
+
+예시))
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+        <Directory /var/www/html>
+                AddHandler cgi-script .py
+                Options ExecCGI
+        </Directory>
+
+설정이 끝났으면 CGI 모듈을 켜주고 Apache2를 재기동 해야 함
+
+CGI모듈은 default 옵션이 아니므로 따로 켜주어야 한다.
+
+sudo a2enmod cgi // a2 : 아파치, enmod : 활성화, cgi : cgi 모듈
+
+그 다음 아파치 재기동
+
+sudo systemctl restart Apache2
+
+
+* tail명령을 이용한 최근 에러 보기
+
+아파치의 경우 다음과 같이 명령
+
+sudo tail /var/log/apache2/error_log
+
+tail명령을 응용!!
+
+
+[Tue Jul 23 05:52:26.064739 2019] [cgid:error] [pid 12595:tid 139709481568000] [client 220.66.155.234:57555] malformed header from script 'helloworld.py': Bad header: Hello python!, referer: http://****/
+infor0404@docker-pract00:/var/www/html$
+
+그냥 py스크립트를 연결하면 이러한 에러가 발생한다.
+
+
+브라우저에서 internal 오류를 inspect > network > header > Content type 을 보면
+컨텐츠 타입을 iso로 읽어들여 문제가 발생함을 추측할 수 있다.
+
+Connection: close
+Content-Length: 610
+Content-Type: text/html; charset=iso-8859-1
+Date: Tue, 23 Jul 2019 05:54:13 GMT
+Server: Apache/2.4.18 (Ubuntu)
+
+print"("Content-Type: text/html; charset=UTF-8\n") 이렇게 헤더를 추가한다.
+나는 iso로 읽어들였지만 별 차이는 없을듯.
+
+python 스크립트에 위와 같이 헤더를 추가할 땐 첫 줄에 써야 하며
+반드시'\n'를 붙여 개행을 해주어야 한다.
