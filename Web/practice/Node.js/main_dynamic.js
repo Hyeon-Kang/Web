@@ -13,6 +13,7 @@ var app = http.createServer(function(request,response){
       return response.writeHead(404);
     }
     response.writeHead(200);
+    
     fs.readFile(`data/${queryData.id}`, 'utf8', function(err, description){
       var template = `
       <!doctype html>
