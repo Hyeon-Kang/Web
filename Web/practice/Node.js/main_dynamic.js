@@ -38,7 +38,7 @@ var app = http.createServer(function(request,response){
 
     } else { // 오류페이지
       response.writeHead(404);
-      response.end(template); // 원하는 페이지 등록
+      response.end(template); // 원하는 페이지 등록 (변경해야함)
     }
 
 
