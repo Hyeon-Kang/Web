@@ -15,4 +15,6 @@ firewalld-cmd --reload (방화벽 정책 갱신)
 
 main.js와 index.html등 핵심 요속 위치한 장소로 이동
 
+경로 변경해야할 듯
+
 nodejs main.js (서버 스크립트 실행)
