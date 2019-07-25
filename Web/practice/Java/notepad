@@ -3,3 +3,23 @@ ex) String str ="aaa";
     while(! str.equals("aaa") ){
     ......
     }
+
+데이터 타입 분류
+
+기본 (privitive type)
+ - 정수 byte, int...
+ - 실수 float, double
+ - 논리 boolean
+
+참조 (reference type)
+ - array
+ - enum
+ - class
+ - interface
+
+ 메모리 사용 영역
+
+  - Heap : class와 array 생성, 실행중인 스레드 안의 JVM 스택에서 이곳을 참조하여
+    필요한 데이터를 참조함
+
+ new를 사용하여 새로운 class 생성 (참조 대상이 같은지 다른지 유의!)
