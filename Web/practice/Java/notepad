@@ -1,3 +1,5 @@
 문자열 비교는 논리연산자 ==이 아닌 equals("aaa")를 사용해야 함
 ex) String str ="aaa";
-    str.equals("aaa") ....
+    while(! str.equals("aaa") ){
+    ......
+    }
