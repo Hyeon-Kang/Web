@@ -41,4 +41,22 @@ ex) String str ="aaa";
 
  저장 데이터 제한하기 -> 열거형 (Enum)
 
- 
+ 정적 초기화 블록
+
+ ex class {
+  static string a = "aa";
+  static string b = "bb";
+  static string c;
+  static {
+    c = a + "+" + b;
+  }
+ }
+
+
+ singleton class
+ 전체 프로그램에서 단 하나의 객체만 만들도록 보장해야 하는 경우
+
+ 이 경우 단 하나의 생성된 객체 이외의 다른 객체가 생성됨을 막기 위해
+ class 외부에서 new 생성자를 호출할 수 없도록 막아야 함
+
+ 이 경우 외부에서
