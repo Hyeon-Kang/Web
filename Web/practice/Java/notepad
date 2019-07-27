@@ -107,6 +107,7 @@ static final int = C언어 constant int
 
 
 
+
 package
 
 패키지는 단순히 파일시스템의 폴더 기능만이 아닌 클래스의 일부분이다.
@@ -136,4 +137,4 @@ public > protected > default > private 순으로 접근 제한이 강화된다.
 
 public : 뚫려있음
 
-protected : 
+protected : 같은 패키지, 자식 클래스만 접근 가능
