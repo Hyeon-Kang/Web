@@ -95,10 +95,12 @@ final field & constant
 
 final 필드는 초기값이 저장되면 해당 필드 내용 불변
 
-C 언어의 상수와 같다.
+C 언어의 상수와 비슷하다. (static 까지 붙이면 같아진다.)
 
 final 필드의 초기값 부여는 두 가지 경우밖에 없다.
 1. 필드 선언 시 부여 (가장 편함. 그냥 class field 생성 시 기재하면 끝!)
 2. 생성자에서 부여 (final init.java 에서 예제 확인)
 
 final field는 비워두면 당연히 컴파일 에러 발생!
+
+static final int = C언어 constant int
