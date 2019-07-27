@@ -104,3 +104,36 @@ final 필드의 초기값 부여는 두 가지 경우밖에 없다.
 final field는 비워두면 당연히 컴파일 에러 발생!
 
 static final int = C언어 constant int
+
+
+
+package
+
+패키지는 단순히 파일시스템의 폴더 기능만이 아닌 클래스의 일부분이다.
+
+패키지는 클래스의 유일성을 유지시켜줌
+
+가량 클래스 이름이 같아도 패키지가 다르면 다른 클래스로 식별
+
+class AA 의 위치가
+
+상위패키지 - 하위패키지 - AA 처럼 되는 경우
+
+호출 방식은 다음과 같다.
+
+package 상위패키지.하위패키지
+
+public class AA ....
+
+전처리 과정 쓰듯 상단에 package 경로를 적어주면 된다.
+
+
+
+
+접근 제한자
+
+public > protected > default > private 순으로 접근 제한이 강화된다.
+
+public : 뚫려있음
+
+protected : 
