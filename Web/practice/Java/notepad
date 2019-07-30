@@ -272,3 +272,7 @@ boolean result = 판별대상 객체 instanceof 비교 타입
 
 
 추상클래스
+
+인터페이스
+
+둘 다 메소드 오버라이드 할 경우 @Override Annotation 가급적 붙여줄 것!
