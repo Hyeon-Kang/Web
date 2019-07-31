@@ -25,7 +25,9 @@ public class close_resource_example implements AutoCloseable {
 
  try(FileInputStream fis = new FileInputStream ("file.txt") ) {
    ...
-   fis.close(); // fis 입출력 객체 사용이 끝나면 close() 메소드로 닫아준다.
+
+   만약 예외 상황 발생 시 자동으로 해당 객체를 close 시켜준 후 catch 블록으로 넘어감
+
  } catch (IOException e) {
    ... 예외 대응 코드
  }
@@ -35,6 +37,9 @@ public class close_resource_example implements AutoCloseable {
  try {
    FileInputStream fis1 = new FileInputStream ("file1.txt");
    FileInputStream fis2 = new FileInputStream ("file2.txt");
+
+   fis1.read();
+   fis2.read();
  }
 
  요렇게 개별로 선언해주어도 가능
