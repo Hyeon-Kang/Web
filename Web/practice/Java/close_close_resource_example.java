@@ -43,3 +43,5 @@ public class close_resource_example implements AutoCloseable {
  }
 
  요렇게 개별로 선언해주어도 가능
+
+ 단! close 자동 적용은 AutoCloseable 인터페이스를 꼭 implements해야함!!
