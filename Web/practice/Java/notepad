@@ -409,3 +409,21 @@ catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
 }
 
 이처럼 예외 목록에 논리 연산자 사용이 가능함
+
+
+
+
+resource 닫기
+
+try-with-resources
+
+예외 발생 여부와 상관없이(!) 사용했던 리소스 객체 (I/O stream, server socket, 등등 각종 채널 모두!)
+
+close() 메소드를 호출하여 안전하게 닫아줌
+
+
+사용하기 위해서는 java.lang.AutoCloseable 인터페이스를 implements해야 함
+
+implements AutoCloseable
+
+예제코드 close_resource_example.java 참조
