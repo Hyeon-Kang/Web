@@ -478,3 +478,10 @@ jdk document에서 method 소개 뒤에 throws 예외처리 구분이 있다면
 예외처리 코드를 작성해주어야 한다.
 
 그러나 throws 뒤의 예외가 runtime exception이라면 try-catch를 사용하지 않아도 된다.
+
+
+요약하자면 각종 api에서 참조한 에러를 내가 확인하고 대응하기 위해
+
+jdk api 에서 불러온 method에서 발생한 예외를 내가 작성한 코드 안으로 예외를 떠넘겨야
+
+사용자가 확인이 가능하다.
