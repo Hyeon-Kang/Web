@@ -1,4 +1,4 @@
-public class close_resource_example implements AutoCloseable {
+public class close_resources_example implements AutoCloseable {
   public static void main(String args[]){
 
     try {
