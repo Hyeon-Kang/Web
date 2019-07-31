@@ -360,3 +360,14 @@ ClassCastException
 
 
 try-catch-finally 블록을 통한 예외처리 코드 작성
+
+try{
+  예외 발생 가능 코드
+} catch (예외처리 할 클래스 e) {
+  예외 처리 코드
+} finally {
+  프로그램 지속 (안 쓰는 경우도 많음)
+}
+
+
+if문을 여러번 사용하듯이 catch문도 다중 선언 가능함
