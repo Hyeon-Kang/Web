@@ -396,3 +396,16 @@ catch (ArrayIndexOutOfBoundsException e) {
 catch (exception e) {
  대응 코드
 }
+
+
+이처럼 catch문을 여러개 사용할 수도 있지만
+
+2가지 예외 상황에 같은 대응처리를 한다 가정을 해보자.
+
+그렇다면 다음과 같이 작성하면 된다.
+
+catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+  대응 코드
+}
+
+이처럼 예외 목록에 논리 연산자 사용이 가능함
