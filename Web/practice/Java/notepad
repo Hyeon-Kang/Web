@@ -495,3 +495,31 @@ jdk api 에서 불러온 method에서 발생한 예외를 내가 작성한 코�
 사용자 정의 예외는 컴파일러가 체크하는 일반 예외로 선언 할 수도 있고
 
 컴파일러가 체크하지 않는 실행 예외로 선언 할 수도 있다.
+
+method처럼 사용자가 선언하며 생성자도 필요함.
+
+ex)
+
+public class exampleException extend Exception (실행 예외 RuntimeException 도 가능함) {
+    public exampleException() {}  // 생성자
+    public exampleException(String message) {
+        super(message);
+    }
+}
+
+
+호출 시 상위 클래스의 생성자를 호출하여 String 으로 된 예외 메시지를 넘겨준다.
+
+
+
+인위적으로 예외를 발생시켜 처리 할 수도 있다.
+
+throw new xxxException();
+
+또는
+
+throw new xxxException("메시지");
+
+물론 사용 후 try-catch 블록으로 처리해주어야 함
+
+userThrows.java 예시를 보자.
