@@ -551,3 +551,35 @@ API = Library
 자바 API를 찾아보기 쉽게 정리된 API document 링크를 첨부함
 
 https://docs.oracle.com/en/java/javase/12/docs/api/index.html
+
+
+
+
+
+객체 소멸자 .finalize()
+
+참조하지 않는 배열이나 객체는 gc가 힙 영역에서 자동으로 소멸시킨다.
+
+gc는 해당 객체를 소멸시키기 직전에 소멸자 finalize()를 실행시키는데
+
+이때 마지막으로 사용한 자원 (연결, 파일 등)을 닫고 싶거나,
+
+별도의 처리를 가하고 싶다면 다음과 같이 오버라이드하여 사용할 수 있다.
+
+ex)
+
+@Override
+protected void finalize() throws Throwable {
+  System.out.println(no + "번 객체의 finalize() 실행.");
+}
+
+또는 대상 객체를 null로 만들어 버린 다음에
+
+System.gc(); // gc 호출
+
+gc를 강제로 호출하여 소멸시키는 방법이 있다.
+
+
+
+
+동적 객체 생성
