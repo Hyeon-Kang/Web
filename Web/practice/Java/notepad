@@ -648,4 +648,4 @@ Thread thread = new Thread( new Runnable() {
   }
 });
 
-thread 파라미터 구간에서 코드 작성
+thread 클래스 선언부 파라미터 구간에서 코드 작성해도 됨
