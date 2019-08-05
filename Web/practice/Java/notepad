@@ -619,4 +619,33 @@ gc를 강제로 호출하여 소멸시키는 방법이 있다.
 각 작업별 스레드를 생성해야 한다.
 
 
-작업 스레드 역시 자바에서 지원하는
+작업 스레드 역시 자바에서 지원하는 thread 클래스를 객체화 하여 사용한다.
+
+먼저 목표 함수(프로그램)을 실행할 매개로 갖는 thread를 생성한다.
+
+Thread thread = new Thread(Runnable target);
+
+// Runnable은 작업 스레드가 실행할 수 있는 코드를 가지고 있는 객체이다.
+
+class Task implements Runnable {
+  public void run() {
+    //thread가 실행할 코드
+  }
+} // Task 객체 틀 생성
+
+Runnable task = new Task();
+// 생성한 Task 객체를 Runnable 타입 task로 선언
+
+Thread thread = new Thread(task);
+// 선언한 task를 thread 객체의 파라미터로 넣고 생성
+
+
+요렇게 각 과정을 따로 작성해도 되지만 아래처럼 통합해도 된다.
+
+Thread thread = new Thread( new Runnable() {
+  public void run() {
+    // thread가 실행할 코드
+  }
+});
+
+thread 파라미터 구간에서 코드 작성
