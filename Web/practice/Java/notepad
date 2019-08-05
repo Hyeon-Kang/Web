@@ -209,6 +209,28 @@ volatile은 하나의 스레드에서만 쓰기작업을 하고,
 
 
 
+
+wrapper 클래스, Boxing / Unboxing
+
+Integer age = new Integer(30);
+// 30이 객체처럼 취급됨
+
+Integer aa = 61;
+// auto Boxing (new 생성자 없이도 자동으로 boxing처리)
+
+Double avg = new  Double("3.145");
+
+int a = age; // Auto Unboxing
+
+일반적으로 wrapper 클래스 integer의 값을 불러오려면
+
+age.intValue(); 를 사용해야 한다.
+
+출처: https://hyeonstorage.tistory.com/168 [개발이 하고 싶어요]
+
+
+
+
 Getter와 Setter 메소드
 
 클래스 내부의 필드는 private로 직접 변조를 막고
@@ -583,3 +605,8 @@ gc를 강제로 호출하여 소멸시키는 방법이 있다.
 
 
 동적 객체 생성
+
+
+
+
+멀티 스레드
