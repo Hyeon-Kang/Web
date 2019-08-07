@@ -768,3 +768,10 @@ thread.getName();
 ex) 현재 실행중인 스레드 읽어오기
 
 Thread thread = Thread.currentThread();
+
+
+
+
+여러 스레드를 동시에 운용하는 예제를 보자.
+
+thread_name.java 참조
