@@ -649,3 +649,74 @@ Thread thread = new Thread( new Runnable() {
 });
 
 thread 클래스 선언부 파라미터 구간에서 코드 작성해도 됨
+
+
+물론 파라미터부에 람다식으로 작성해도 문제는 없다.
+
+다만 람다식 특성상 디버깅이 어렵고 무명으로 선언되기에 재귀에 사용하기 까다롭기 때문에
+
+가급적 사용을 자제하라는 글도 봄...
+
+
+thread객체는 생성하면 바로 실행되는 것이 아니라 다음과 같이 실행 메소드를 사용해야 한다.
+
+ex)
+
+thread.start();
+
+start() 메소드가 호출되면, 작업 스레드는 매개값을 ㅗ바든 Runnable의 run() 메소드를
+
+실행한다.
+
+
+beep 음과 콘솔창에 알림을 동시에 출력하는 프로그램을 예시로 들어보겠다.
+
+먼저 메인 스레드만 이용한 경우이다.
+
+    // 메인 스레드만 이용한 경우
+
+    import java.awt.*; // beep 소리 출력 메소드에 사용
+
+    public class BeepPrintExample1 {
+      public static void main(Strint[] args) {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        // toolkit 객체 얻기 (비프음 메소드 호출에 필요)
+
+        for(int i=0; i<5; i++)  {
+          toolkit.beep();
+          try {Thread.sleep(500);} catch(Exception e) {}
+
+        } // for end : 0.5초의 딜레이를 가지고 beep음 출력
+
+        for(int i =0; i<5; i++) {
+          System.out.println("beep!");
+          try {Thread.sleep(500);} catch(Exception e) {}
+        } // for end : 0.5초의 딜레이를 가지고 beep 텍스트 콘솔창에 출력
+
+      } // main end
+    } // class end
+
+
+    // 이렇게 메인 스레드에 작성을 하면 beep음만 0.5초 딜레이로 5번 출력 후
+    // 콘솔창에 beep 텍스트가 0.5초 딜레이로 5번 출력 된다.
+
+    // 즉 출력과 소리가 동시에 일어나지 않는다.
+
+
+
+여기서 beep 음 출력 파트를 별도의 thread에 담아 실행해보자.
+
+    // Beep 소리 출력 task 분리
+
+    public class BeepTask implements Runnable {
+      public void run() {
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        for (int i =0; i<5; i++) {
+          toolkit.beep();
+          try{thread.sleep(500);} cathc(Exception e) {}
+        }// for end
+      } // run end
+    } // class end
+
+
+그리고 main thread를 다시 작성
