@@ -720,3 +720,22 @@ beep 음과 콘솔창에 알림을 동시에 출력하는 프로그램을 예시
 
 
 그리고 main thread를 다시 작성
+
+
+    // BeepTask (소리 출력 Task 분리)
+
+    public class BeepPrintExample2 {
+      public static void main(String[] args) {
+        Runnable beepTask = new BeepTask();
+        Thread thread = new Thread(beepTask);
+
+        for (int i=0; i<5; i++) {
+          System.out.println("띵");
+          try {Thread.sleep(500);} catch (Exception e) {}
+
+        }
+      }
+    }
+
+
+aa
