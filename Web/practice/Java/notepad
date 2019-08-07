@@ -738,4 +738,33 @@ beep 음과 콘솔창에 알림을 동시에 출력하는 프로그램을 예시
     }
 
 
-aa
+Thread의 이름 설정
+
+생성한 스레드는 자동으로 Thread-n 형식의 이름을 갖는다.
+
+main 스레드는 예외로 main이름의 thread를 갖게됨.
+
+번호(n) 대신 스레드의 이름을 따로 짓고 싶다면 다음과 같이 setName 메소드를 사용
+
+
+
+
+ex)
+thread.setName("스레드 이름 정하기!");
+
+반대로 스레드의 이름을 알고 싶다면
+
+thread.getName();
+
+두 메소드는 Thread의 인스턴스 메소드이므로 당연히 스레드 객체의 참조가 필요함
+
+만약 현재 실행중인 스레드 객체의 참조 포인트가 없다면
+
+정적메소드 currentThread() 로 현재 사용중인 스레드 이름을 얻을 수 있다.
+
+
+
+
+ex) 현재 실행중인 스레드 읽어오기
+
+Thread thread = Thread.currentThread();
