@@ -775,3 +775,72 @@ Thread thread = Thread.currentThread();
 여러 스레드를 동시에 운용하는 예제를 보자.
 
 thread_name.java 참조
+
+// 스레드의 구분을 위한 이름 설정 및 운용 예제
+
+// 구성 요소 : ThreadNameExample.java, ThreadA.java, ThreadB.java
+
+
+    public class ThreadNameExample {
+      public static void main(String args[]) {
+        Thread mainThread = Thread.currentThread();
+        System.out.println("프로그램 시작 스레드 이름 : " + mainThread.getName());
+
+        ThreadA threadA = new ThreadA();
+        System.out.println("작업 스레드 이름 : " + threadA.getName());
+        threadA.start();
+
+        ThreadB threadB = new ThreadB();
+        System.out.println("작업 스레드 이름 : " + threadB.getName());
+        threadB.start();
+
+      } // main end
+    } // class end
+
+
+그렇다면 스레드간의 우선순위는 어떻게 될까?
+
+
+멀티 스레드는 동시성 (concurrency) 또는 병렬성 (parallelism)으로 실행됨
+
+동시성 : 멀티작업을 위해 하나의 코어에서 멀티 스레드가 번갈아가며 실행되는 성질
+(하나의 코어에서 여러 스레드를 굴린다.)
+
+병렬성 : 멀티작업을 위해 멀티 코어에서 개별 스레드를 동시에 실행하는 성질
+(여러 코어에서 여러 스레드를 굴린다)
+
+스레드 스케줄링에 의해 스레드들은 짧은 시간에 번갈아가며 run() 메소드 안의
+
+코드를 실행한다.
+
+
+
+자바의 스레드 스케줄러는 우선순위 방식과 라운드 로빈 방식(순환 할당, time token)을 사용한다.
+
+여기서 사용자가 개입할 수 있는 부분은 우선순위를 이용한 방식이다.
+
+Thread 객체의 setPriority(1~10) 메소드를 통해 스레드의 우선순위를
+
+수동으로 할당할 수 있다.
+
+예시처 1~10 까지의 값을 부여할 수도 있으나
+
+Thread 클래스 내부의 우선순위용 상수를 사용할 수도 있다.
+
+*** 1의 우선순위가 가장 낮고 10의 우선순위가 가장 높게 부여된다.
+
+ex)
+thread.setPriority(Thread.MAX_PRIORITY);
+
+Thread.MAX_PRIORITY : 10
+
+Thread.NORM_PRIOIRTY : 5
+
+Thread.MIN_PRIORITY : 1
+
+운영체제 수업에서 배운 것 처럼 같은 우선순위의 작업은 그들간 라운드 로빈 방식을 취한다.
+
+
+다음 우선순위를 설정한 스레드 예제를 참고해보자.
+
+PriorityExample.java 참조
