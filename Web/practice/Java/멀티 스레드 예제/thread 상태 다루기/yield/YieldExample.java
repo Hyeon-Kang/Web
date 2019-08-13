@@ -17,5 +17,18 @@ public class YieldExample {
 		} // main thread sleep
 
 		threadA.work = false;
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {}
+
+		threadA.work = true;
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {}
+
+		// 모든 스레드 정지
+		threadA.stop = true; // stop() 메소드가 아닌 stop boolean 필드의 값을 수정하여 run 종료 유도
 	}
 }
