@@ -952,3 +952,18 @@ Thread.State state = 목표스레드.getState();
 yield() : 의미없는 작업 수행 시 다른 스레드에게 실행 순서 양도
 
 stop() : 스레드 정지 수단이나 강제적이므로 stop보단 run을 빨리 끝낼 방안을 사용하자
+
+join() : 다른 스레드의 종료를 기다림
+
+두개의 스레드 A와 B가 있다 가정
+
+ [threadA.java]
+ threadB.start();
+ threadB.join(); // thread A가 threadB의 결과를 받기 위해 연산이 끝날 때 까지 대기
+
+ // 계산 결과 값을 받아 사용하는 경우에 다음과 같은 방식을 사용
+
+
+wait(), notify(), notifyAll() 은 공유객체를 돌아가며 사용할 때
+
+사용하는 메소드이므로 synchronized 메소드나 블록에서만 호출 가능하다.
