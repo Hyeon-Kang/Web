@@ -10,7 +10,7 @@ public class YieldExample {
 
 		try {
 			System.out.println("main thread sleep");
-			Thread.sleep(3000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -19,16 +19,17 @@ public class YieldExample {
 		threadA.work = false;
 
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {}
 
 		threadA.work = true;
 
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(1500);
 		} catch (InterruptedException e) {}
 
 		// 모든 스레드 정지
 		threadA.stop = true; // stop() 메소드가 아닌 stop boolean 필드의 값을 수정하여 run 종료 유도
+		threadB.stop = true;
 	}
 }
