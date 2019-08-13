@@ -938,7 +938,13 @@ public void method() {
 
 getState() 메소드는 스레드 상태에 따라 몇 가지 열거 상수를 반환한다.
 
+수동으로 할 경우
 
+Thread.State state = 목표스레드.getState();
+
+다음과 같이 담아서 사용 가능
+
+* 스레드 상태 폴더 참조
 
 
 스레드 상태 제어
