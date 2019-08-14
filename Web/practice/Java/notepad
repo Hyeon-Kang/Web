@@ -997,3 +997,14 @@ public class XXXThread extends Thread {
     // 스레드가 사용한 자원 정리
   }
 }
+
+* StopFlagExample.java 참조
+
+stopflag 는 현재 다루고 있는 스레드를 종료시킬 수 있으나
+
+일시정지 상태인 스레드는 정지시킬 수 없다.
+
+
+이처럼 일시정지 상태인 스레드를 종료할 때 interrupt 메소드를 사용한다.
+
+interrupt 메소드는 runnable(실행대기)이거나 execution(실행)상태의 스레드에 사용할 수 없다..
