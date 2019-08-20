@@ -1040,3 +1040,32 @@ interrupt 메소드가 일시정지가 아닌 상태에서 호출되면 그 다�
 데몬 스레드를 응용한 자동 저장 기능을 갖춘 스레드의 간단한 예시를 보자
 
 * DaemonExample.java 참조
+
+
+
+
+
+
+스레드 그룹
+
+관련된 스레드를 묶어서 운용
+
+계층적으로 하위 스레드 그룹을 가질 수 있음
+
+System 그룹에서 JVM 운용에 필요한 스레드와 메인 스레드를 자동으로 생성한다.
+
+
+스레드는 반드시 스레드 그룹에 속해있어야 하며
+
+자신을 생성한 스레드와 같은 그룹에 소속됨
+
+
+스레드 그룹 이름 얻기
+
+ex)
+
+ThreadGroup group = Thread.currentThread.getThreadGroup();
+
+또는
+
+String GroupName = group.getName();
