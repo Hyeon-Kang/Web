@@ -1174,3 +1174,35 @@ class t extends Thread {
 
   public void run() {}
 }
+
+
+
+
+스레드 그룹 통제
+
+그룹 단위로 스레드 통제 메소드 참조
+
+activeCount()
+activeGroupCount()
+checkAccess()
+destory()
+getMaxPriority()
+setMaxPriority(int pri)
+.
+.
+.
+inturrept()
+
+
+
+스레드 그룹에 interrupt() 명령을 호출하면
+
+그룹 내 모든 하위 스레드에 interrupt() 명령이 전달된다.
+
+
+
+
+
+
+
+스레드 풀 (Excutor Service)
