@@ -1069,3 +1069,60 @@ ThreadGroup group = Thread.currentThread.getThreadGroup();
 또는
 
 String GroupName = group.getName();
+
+
+
+
+JVM이 생성한 스레드를 살펴보고 주 스레드와 데몬스레드 관찰
+
+* groupExample.java 에서 다음과 같은 결과를 얻었다.
+
+
+for(Thread thread : threads) {
+			System.out.println("Name : " + thread.getName() + ((thread.isDaemon()?"(데몬)":"(주)")));
+		}
+
+
+    Name : Signal Dispatcher(데몬)
+    Name : Common-Cleaner(데몬)
+    Name : Reference Handler(데몬)
+    Name : main(주)
+    Name : Attach Listener(데몬)
+    Name : Finalizer(데몬)
+    Name : AutoSaveThread(데몬)
+
+
+이제 스레드의 역할은 파악하였다. 소속 그룹을 확인해보자
+
+
+
+for(Thread thread : threads) {
+			System.out.println("Name : " + thread.getName() + ((thread.isDaemon()?"(데몬)":"(주)")));
+			System.out.println("\t" + "소속그룹 : " + thread.getThreadGroup().getName());
+			System.out.println();
+		}
+
+
+  Name : Signal Dispatcher(데몬)
+	  소속그룹 : system
+
+  Name : Common-Cleaner(데몬)
+  	소속그룹 : InnocuousThreadGroup
+
+  Name : Reference Handler(데몬)
+  	소속그룹 : system
+
+  Name : main(주)
+  	소속그룹 : main
+
+  Name : Attach Listener(데몬)
+  	소속그룹 : system
+
+  Name : Finalizer(데몬)
+  	소속그룹 : system
+
+  Name : AutoSaveThread(데몬)
+  	소속그룹 : main
+
+
+ㅁ
