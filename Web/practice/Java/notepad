@@ -1346,6 +1346,8 @@ Callable<T> task = new Callable<T> {
 
 
 
+
+
 작업 처리 요청
 
 ExcecutorService의 작업 큐에 Runnable 또는 Callble 객체를 넣는 행위
