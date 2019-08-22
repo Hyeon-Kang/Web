@@ -1294,3 +1294,78 @@ shutdown() : 작업큐와 현재 작업중인 모든 스레드의 작업을 마�
 shutdownNow() : 현재 처리중인 스레드에 interrupt()를 걸어 작업 중지를 시도하고
 
                 스레드 풀을 종료함. 큐에 남은 미처리 작업목록을 반환함
+
+awaitTermination(long timeout, TimeUnit unit) : 시간과 단위를 매개변수로 준다.
+
+이렇게 지정된 시간 내에 끝난 작업은 True로 처리하고 시간 내 끝내지 못한 작업은
+
+인터럽트를 걸어 중지시키고 False를 반환한다.
+
+
+
+가급적이면 작업을 안전하게 종료시킨 뒤에 애플리케이션을 닫는 shutdown()을 사용해야 함
+
+
+
+
+
+작업 생성
+
+작업은 Runnable과 Callable 클래스 두 가지가 있다.
+
+Runnable 객체는 리턴 값이 없고 Callable 객체는 리턴값이 있는 것이 대표적인 차이
+
+위에서 많이 다루었듯이
+
+Runnable 클래스는 다음과 같다.
+
+    Runnable task  = new Runnable() {
+
+      @Override
+      public void run() {
+        // 스레드가 처리할 작업 내용
+      }
+    }
+
+run 메소드 내부의 코드만 실행하고 끝난다.
+
+즉, 작업이 끝나며 별 다른 리턴 값이 발생하지 않는다.
+
+
+Callable 클래스는 제네릭 타입으로 결과 값 타입을 지정해주어야 한다.
+
+* 리턴 자료형 String 예시
+
+Callable<T> task = new Callable<T> {
+  @Override
+  public T call() throws Exception {
+    //스레드가 처리할 작업 내용
+    return T;
+  }
+}
+
+
+
+작업 처리 요청
+
+ExcecutorService의 작업 큐에 Runnable 또는 Callble 객체를 넣는 행위
+
+
+execute(Runnable command) : 작업 큐에 넣을 Runnable 객체를 매개변수로 받는다.
+
+작업 처리 결과를 받지 못 하는 것이 특징.
+(결과 값이 없는 작업을 큐에 넣을 때 사용)
+
+
+submit(Runnable task) : 작업 결과를 얻을 때 사용, Future<V> 지정 타입으로 결과 반환
+
+
+
+작업 처리 도중에 예외가 발생한 경우
+
+execute(); 메소드의 경우 스레드가 종료되며 해당 스레드는 제거된다.
+
+따라서 스레드풀은 다른 작업 처리를 위해 새로운 스레드를 생성함.
+
+
+submit(); 메소드의 경우 예외가 발생한 스레드가 종료되지 않고 다음 작업을 위해 재사용.
