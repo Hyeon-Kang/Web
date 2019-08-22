@@ -1396,3 +1396,25 @@ Execute 메소드와 달리 submit 메소드는 연속으로 실행할 때 예�
 
 
 * NoResultExample.java
+
+
+
+		Future future = executorService.submit(runnable);
+		// future 객체에 executorService 스레드 풀에서 submit 옵션으로 runnable 객체를 돌린 결과를 반환한다.
+		// 아래에 future.get() 메소드를 선언하였으므로 runnable의 작업이 완료 될 때까지 main 스레드는 블로킹 상태로 대기한다.
+
+
+		try {
+			future.get();
+			System.out.println("[작업 처리 완료]");
+		} catch (InterruptedException e) {
+
+			// Interrupt() 메소드 호출 시 해당 예외처리 실행
+			System.out.println("[인터럽트 예외 발생함] " + e.getMessage());
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+
+			// 작업 처리 도중 예외 발생 시 해당 예외처리 실행
+			System.out.println("[실행 예외 발생함] " + e.getMessage());
+			e.printStackTrace();
+		}
