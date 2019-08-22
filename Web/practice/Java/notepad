@@ -1206,3 +1206,91 @@ inturrept()
 
 
 스레드 풀 (Excutor Service)
+
+
+자원의 한계로 스케쥴을 짜서 스레드를 운용할 필요가 있다.
+
+따라서 작업 큐와 스레드 풀을 사용함
+
+
+자바는 ExecutorService 인터페이스와 Executor 클래스를 통해
+
+스레드 풀 관련 패키지를 재공한다.
+
+java.util.concurrent 패키지에서 제공.
+
+
+Thread pool = ExecutorService 객체
+
+ExecutorService 내부에는 작업 큐와 스레드가 존재한다.
+
+서버 애플리케이션에서 필수로 사용하므로 향후 네트워크 파트를 대비햐여 잘 숙지할 것!
+
+
+
+초기 스레드 수 : 스레드 풀을 초기 생성 시 기본적으로 들어가있는 스레드 수
+
+코어 스레드 수 : 스레드 풀에 스레드가 전개되었을 때 사용되지 않는 스레드를 제거하며
+
+                제거하지 않고 최소로 유지하는 스레드 수
+
+최대 스레드 수 : ...
+
+
+
+newCachedThreadPool()
+
+초기 스레드 수 : 0, 코어 스레드 수 : 0, 최대 스레드 수 : Integer의 최대 값 만큼
+
+이론적으로 Int값의 한계만큼 가능하나 운영체제가 가진 메모리 상황에 따라 달라짐
+
+추가된 스레드가 60초 이상 아무런 작업도 하지 않으면 해당 스레드를 종료하고 풀에서 제거함
+
+
+ex) ExecutorService threadpool = Executors.newCachedThreadPool(); // 스레드 풀 객체는 정적메소드
+
+
+
+newFixedThreadPool(int n Threads) // 매개 변수로 최대 스레드 개수 int 값 부여
+
+CachedThreadPool 과는 달리 유휴상태 스레드가 제거되지 않는다.
+
+코어 스레드 개수 : n, 최대 스레드 수 : n
+
+ex) 매개변수로 cpu가 가지고 있는 코어의 수를 전달
+
+ExecutorService threadPool = Executors.newFixedThreadPool(
+  Runtime.getRuntime().availableProcessors() // cpu의 코어 수 획득
+); // threadPool end
+
+
+
+ex) 세부사항 부여 : 코어 스레드 3, 최대 스레드 100개인 스레드풀 생성
+
+ExecutorService threadPool = new ThreadPoolExecutor(
+
+3,    // 코어 스레드 개수
+100,  // 최대 스레드 개수
+120L, // 놀고 있는 시간 제한
+TimeUnit.SECONDS, // 놀고있는 시간 단위  (120L, SECONDS : 120초)
+new SynchronuosQuewe<Runnable>() // 작업큐
+)
+
+
+
+스레드 풀 종료
+
+* 스레드 풀의 스레드는 기본적으로 데몬 스레드가 아님
+
+따라서 main 스레드가 종료되더라도 스레드풀의 스레드는 작업을 계속 처리한다.
+
+따라서 애플리케이션을 종료하기 위해서는 스레드풀의 모든 스레드를 종료시켜야 한다.
+
+
+스레드 풀 종료 메소드에
+
+shutdown() : 작업큐와 현재 작업중인 모든 스레드의 작업을 마친 뒤 종료
+
+shutdownNow() : 현재 처리중인 스레드에 interrupt()를 걸어 작업 중지를 시도하고
+
+                스레드 풀을 종료함. 큐에 남은 미처리 작업목록을 반환함
