@@ -1425,3 +1425,29 @@ Execute 메소드와 달리 submit 메소드는 연속으로 실행할 때 예�
 안드로이드나 다른 UI를 다루는 스레드에서 get(); 메소드를 실행시키면 시스템이 중단되는 것 처럼 보이므로
 
 주의해서 사용해야 한다.
+
+
+
+
+
+* 리턴값이 있는 작업 완료 통보
+
+ex)
+
+  Callable<T> task = new Callable<T>() {
+    @Override
+    public T call() throws Exception {
+      // 스레드가 처리할 작업 내용
+      return T;
+    }
+  };
+
+  Future<T> future = executorService.submit(task);
+
+  try{
+    T result = future.get(); // 위에서 끝난 스레드 결과를 T result 객체에 저장
+  } catch (InterruptedException e) {
+    // 작업 처리 도중 스레드가 interrupt 될 경우 실행할 코드
+  } catch (ExecutionException e ) {
+    // 작업 처리 도중 예외가 발생한 경우 실행할 코드
+  }
