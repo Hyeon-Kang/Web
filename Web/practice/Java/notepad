@@ -1451,3 +1451,20 @@ ex)
   } catch (ExecutionException e ) {
     // 작업 처리 도중 예외가 발생한 경우 실행할 코드
   }
+
+
+자세한 내용은 ResultByCallableExample.java 참조
+
+
+
+
+작업처리 결과를 외부 객체에 저장 & 분산처리 응용
+
+여러 스레드에 연산을 분배하고 외부 객체에 저장한 결과를 취합
+
+다음 예제 참조
+
+ResultByRunnableExample.javase
+
+
+(thread pool 4 이어서 진행)
