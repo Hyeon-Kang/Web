@@ -1594,6 +1594,8 @@ java FX나 Android App에서 UI 를 생성하거나 변경하는 스레드를 �
 
 
 
+
+
 Generic type
 
 
@@ -1609,3 +1611,12 @@ Generic은 타입을 파라미터화 해서 컴파일시 구체적인 타입이 
 
 
 컴파일 시 미리 타입을 강조하여 에러를 사전에 방지함
+
+
+ex) List list = new ArrayList();
+    list.add("hello");
+    String str = (String) list.get(0);
+
+    List <String> list = new ArrayList <String> ();
+    list.add("hello");
+    String str = list.get(0);
