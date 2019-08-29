@@ -1620,3 +1620,38 @@ ex) List list = new ArrayList();
     List <String> list = new ArrayList <String> ();
     list.add("hello");
     String str = list.get(0);
+
+    * 아래 코드의 경우 list 객체가 받는 데이터를 <String>으로 고정함
+
+    따라서 아래 str에서 바로 가져올 수 있다.
+
+
+
+
+
+제네릭 타입은 타입을 < > 안에 입력하는 파라미터로 가진 클래스와 인터페이스를 말한다.
+
+선언시 클래스 / 인터페이스 이름 뒤에 "< >" 부호가 붙는다.
+
+public class 클래스명 <T> {...}
+
+public interface 인터페이스명 <T> {...}
+
+
+
+
+제네릭 타입을 지정하여 타입을 확고히 명시함으로 타입변환을 최소화 (타입변화에 대한 오버헤드 최소화)
+
+
+* 최상위 객체 Object type
+
+ex) public void set(Object object) {this.object = object; }
+    // 어떠한 객체도 받아들일수 있다.
+
+    public Object get() {return object;}
+    // Object 타입 반환
+
+    box.set("hello"); // Object 타입으로 저장
+
+    String str = (String) box.get();
+    // 반환받을땐 필요한 타입을 명시해준 뒤 받으면 됨
