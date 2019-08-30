@@ -1670,6 +1670,8 @@ ex) public void set(Object object) {this.object = object; }
 
 ex)
 
+    * 클래스 (설계)선언땐 타입 파라미터로 작성 가능
+
     public class Box <T> {
       private T t;
       public  get() { return t; }
@@ -1695,4 +1697,11 @@ ex)
 
     해당 제네릭 타입 클래스 객체를 선언 시 타입 파라미터 자리에 원하는 타입을 지정하여 응용 가능
 
-    
+
+
+
+  Box<String> box = new Box<String();
+
+  요렇게 생성시 타입 파라미터 자리에 적절한 타입을 배치해서 생성하면
+
+  컴파일러가 알아서 타입 파라미터를 치환해준다.
