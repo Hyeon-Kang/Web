@@ -1713,3 +1713,26 @@ ex)
 
 
 더 자세한 제네릭 타입 사용 예시는 Box.java, BoxExample.java 참조
+
+
+
+
+멀티 타입 파라미터
+
+타입 파라미터를 여러개 사용해서 선언 가능
+
+ex)
+
+    public Box <K, V> {
+
+    private K k;
+    private V v;
+
+    타입별 getter, setter
+    }
+
+
+
+자바 7 이상부터는 타입 파라미터를 중복해서 사용할 필요가 없다.
+
+Product<Tv, String> product = new Product <> (); // 생성자 입력부에서 "<>"만 써도 컴파일러가 유추함
