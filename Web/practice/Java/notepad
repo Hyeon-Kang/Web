@@ -1758,3 +1758,8 @@ public <T> Box<T> boxing(T t) {...}
 
 
 * 1) 처럼 호출부에서 타입 파라미터를 쓰지 않아도 컴파일러가 알아서 매칭해줌
+
+
+멀티 파라미터를 사용한 제네릭 메소드 사용 예제는 다음 스크립트를 참조하자.
+
+* CompareMethodExample.java, Util.java, Pair.java
