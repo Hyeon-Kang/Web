@@ -1763,3 +1763,26 @@ public <T> Box<T> boxing(T t) {...}
 멀티 파라미터를 사용한 제네릭 메소드 사용 예제는 다음 스크립트를 참조하자.
 
 * CompareMethodExample.java, Util.java, Pair.java
+
+
+
+
+
+타입 파라미터를 구체적으로 제한할 경우
+
+public <T extends 상위타입> 리턴타입 메소드(매개변수, ...) {...}
+
+단! 여기서 extends는 상속의 의미보다 '종류'로 받아들여야 한다.
+
+해당 계통의 클래스로 사용을 제한한다는 뜻
+
+interface객체도 참조할수 있으나 implements가 아닌 extends를 그대로 사용한다.
+
+
+
+ex)
+    public <T extends Number> int compare(T t1, T t2) {
+        double v1 = doubleValue();
+        double v2 = doubleValue();
+        return Double.compare(v1, v2);
+    }
