@@ -1835,3 +1835,7 @@ public Course(String name, int capacity) {
 		this.name = name;
 		students = (T[])(new Object[capacity]);
 	}
+
+
+
+설명보다 내용 참조가 더 중요하므로 Wildcards 패키지 참조 (WildCardExample.java 참조)
