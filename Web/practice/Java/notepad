@@ -1803,12 +1803,35 @@ ex)
 
 사용예시
 
+다음과 같이 A가 최상위로 두고
+
+A <- B <- C <- D <- E 를 순서대로 상속하여 생성하였다 가정하자.
+
   제네릭타입 <?> : Unbounded Wildcards
 
   해당 타입 객체에 소속된 모든 클래스나 인터페이스 타입을 받을수 있다.
 
+
+
   제네릭타입<? extends 상위타입> : Upper Bounded Wildcards (상위 클래스 제한)
 
+    제네릭타입<? extends C> 인경우 ? 자리에는 C와 C의 자식이 들어갈 수 있다.
+
+    ex) C, D, E
 
 
   제네릭타입 <? super 하위타입> : Lower Bounded Wildcards (하위 클래스 제한)
+
+    <? super C> 인경우 ? 자리에 C와 C의 부모가 들어갈 수 있다.
+
+    ex) C, B, A
+
+
+*** 자바 문법상 정해지지 않은 타입의 배열을 생성할 수 없으므로
+
+Object 타입으로 미리 만들어 둔 다음 형 변환으로 바꾸어야 한다.
+
+public Course(String name, int capacity) {
+		this.name = name;
+		students = (T[])(new Object[capacity]);
+	}
