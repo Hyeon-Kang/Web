@@ -1839,3 +1839,21 @@ public Course(String name, int capacity) {
 
 
 설명보다 내용 참조가 더 중요하므로 Wildcards 패키지 참조 (WildCardExample.java 참조)
+
+
+
+
+제네릭 인터페이스를 구현할 경우 들어서는 하위 클래스도 같은 계통의 제네릭타입이어야 한다.
+
+제네릭 인터페이스 선언과 앞에서 다룬 제네릭 인터페이스 타입 참조는 다르다.
+
+
+제네릭 인터페이스 선언 시
+
+public class ChildProduct <K, V, C> extends Product<K,V> {...}
+
+ChildProduct<Tv, String, String> product = new ChildProduct<>();
+
+인터페이스에 선언한 제네릭 파라미터를 Implements 한 객체에서도 제네릭으로 선언해주어야 한다.
+
+자세한 예시는 generic_extends_implements folder에서 ChildProduct.java 와 ChildProductAndStorageExample.java 참조
