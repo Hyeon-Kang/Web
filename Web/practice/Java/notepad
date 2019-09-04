@@ -1857,3 +1857,28 @@ ChildProduct<Tv, String, String> product = new ChildProduct<>();
 인터페이스에 선언한 제네릭 파라미터를 Implements 한 객체에서도 제네릭으로 선언해주어야 한다.
 
 자세한 예시는 generic_extends_implements folder에서 ChildProduct.java 와 ChildProductAndStorageExample.java 참조
+
+
+
+
+
+
+
+
+컬렉션 프레임워크
+
+Collection 계열
+
+  - List : 순서, 중복 가능 (ArrayListt, Vector, LinkedList)
+
+  - Set : 순서 없음, 중복 불가 (HashSet, TreeSet)
+
+Map 계열
+
+  - 키와 값의 쌍으로 구성, 키는 중복 불가
+
+
+
+List 컬렉션
+
+배열처럼 인덱스로 관리
