@@ -1979,3 +1979,26 @@ read(byte[] b); 로 입력 스트림을 받을 경우
 write(int b) 메소드를 사용하면 int 단위 4byte가 통째로 출력되는 것이 아닌
 
 데이터가 실제로 들어있는 1byte 만 출력된다.
+
+
+ex) OutputStream
+
+    public static void main(String[] args) throws Exception{
+        OutputStream os = new FileOutputStream ("C:/Temp/test.txt");
+        byte[] data = "ABC".getByte(); // byte배열에 문자열 "ABC"를 byte 단위로 쪼개서 저장
+
+        for(int i=0; i<data.length; i++) {
+          os.write(data[i]);
+        }
+        os.flush();
+
+        os.close();
+        // 출력스트림에서 write() 메소드를 사용하면
+        // 출력 버퍼에 저장이 되었다 버퍼가 꽉 차면 출력이 된다.
+        // 데이터가 충분히 들어오지 않아 버퍼에 갇혀있는 데이터를
+        // flush() 메소드로 강제 출력과 동시에 버퍼 메모리를 초기화한다.
+
+    }
+
+
+a
