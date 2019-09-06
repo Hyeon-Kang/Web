@@ -1912,28 +1912,34 @@ ex) FileReader, FileWriter
 
 
 
-#include<stdio.h>
-#include<stdlib.h>
 
-static int fibo(int n);
+파일 입출력 예제
 
-int main(int argc, char * argv[]){
-  int num1 = atoi(argv[1]);
-  if(num1>=0){
-    printf"(input num : %d", num1);
-    int result = fibo(num1);
-    printf("result : %d", result);
+  public static void main(String[] args) throws Exception {
+    InputStream is = new FileInputStream("C:/Temp/test.txt");
+    int readByte;
+    while ( (readByte = is.read()) != -1 ) {
+      System.out.println(readByte); // 정수 출력
+    }
 
-    return result;
+    // * 또 다른 방법
+    while(true) {
+      readByte = is.read();
+      if(readByte == -1) break;
+      System.out.println( (char) readByte); // 아스키코드로 변환
+    }
   }
 
-  printf("range error");
 
-  return 0;
-}
+입력 스트림과 출력 스트림과
 
+read(byte[] b); 로 입력 스트림을 받을 경우
 
-static int fibo(int n) {
-		if(n <=0) return 0;
-		if (n ==1 ) return 1;
-		return fibo(n-1) + fibo (n-2);
+  InputStream is = new FileInputStream ( "C:/test.jpg");
+  int readByteNo;
+  byte[] readByte = new byte[3];
+
+  while( (readByteNo = is.read(readBytes)) != -1) { // read메소드 인자로 배열을 주었으므로 배열에 들어간 데이터 인덱스 숫자를 반환
+    System.out.println(readByteNo); // 배열에 들어간 입력 스트림 바이트 수 출력
+    // 받을 데이터가 없으면 마찬가지로 -1 출력
+  }
