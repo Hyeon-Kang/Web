@@ -1882,3 +1882,58 @@ Map 계열
 List 컬렉션
 
 배열처럼 인덱스로 관리
+
+
+
+
+
+
+
+
+
+
+IO 패키지 (Network Communicatoin)
+
+java.io 패키지 : Input/Output API
+
+
+바이트 기반 스트림 : 그림, 멀티미디어, 문자 등 모든 종류의 데이터를 다룸
+
+InputStream, OutputStream
+
+ex) FileInputStream, FileOutputStream
+
+
+문자 기반 스트림 : 문자 송수신 특화
+
+Reader, Writer
+
+ex) FileReader, FileWriter
+
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+static int fibo(int n);
+
+int main(int argc, char * argv[]){
+  int num1 = atoi(argv[1]);
+  if(num1>=0){
+    printf"(input num : %d", num1);
+    int result = fibo(num1);
+    printf("result : %d", result);
+
+    return result;
+  }
+
+  printf("range error");
+
+  return 0;
+}
+
+
+static int fibo(int n) {
+		if(n <=0) return 0;
+		if (n ==1 ) return 1;
+		return fibo(n-1) + fibo (n-2);
