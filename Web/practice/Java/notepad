@@ -1943,3 +1943,39 @@ read(byte[] b); 로 입력 스트림을 받을 경우
     System.out.println(readByteNo); // 배열에 들어간 입력 스트림 바이트 수 출력
     // 받을 데이터가 없으면 마찬가지로 -1 출력
   }
+
+
+  // * 또 다른 방법
+  while( true) {
+    readByteNo = is.read(readByte);
+    if (readByteNo == -1) break; // 입력 값이 없으면 -1 반환, 루프 탈출
+    data += new String(readByte, 0, readByteNo);
+  }
+
+  System.out.println(data);
+
+
+  추가 파라미터 입력
+
+  read(byte[], int offset, int data_num);
+
+
+   data stream은 close() 메소드로 닫아주어야 한다.
+
+
+
+
+출력 스트림 :  OutputStream
+
+  write() : 출력 스트림과
+
+  flush() : 버퍼에 잔류하는 모든 바이트 출력
+
+  close() : 시스템 자원 반납 & 출력 스트림 닫기
+
+
+입출력 메모리에 1 byte 데이터가 들어있는 경우
+
+write(int b) 메소드를 사용하면 int 단위 4byte가 통째로 출력되는 것이 아닌
+
+데이터가 실제로 들어있는 1byte 만 출력된다.
