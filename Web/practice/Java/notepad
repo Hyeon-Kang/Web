@@ -2001,4 +2001,16 @@ ex) OutputStream
     }
 
 
+파일 쓰기
+
+  public class WriteExample {
+    public sstatic void main(String []args ) throws Exception {
+        OutputStream os = new FileOutputStream("C:/Temp/test.txt");
+        byte[] data = "ABC".getByte();
+        os.write(data);
+        os.flush();
+        os.close();
+    }
+  }
+
 a
