@@ -2013,4 +2013,13 @@ ex) OutputStream
     }
   }
 
-a
+
+
+
+
+
+문자 기반 입력스트림 Reader class
+
+int read(), (char[] cbuf), (char[] )
+
+write 등 다른 메소드와
