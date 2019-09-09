@@ -11,7 +11,7 @@ ex) String str ="aaa";
  - 실수 float, double
  - 논리 boolean
 
-   
+
 참조 (reference type)
  - array
  - enum
