@@ -2035,3 +2035,30 @@ write 등 다른 메소드와 용법이 같다.
     }
 
     reader.close();
+
+
+
+    * 다른 형태
+    int readCharNo;
+    char [] cbuf = new char[2];
+    String data = "";
+    while( (readCharNo = reader.read(cbuf)) != -1 ) {
+      data += new String(cbuf, 0, readCharNo);
+    }
+    System.out.println(data);
+
+    reader.close();
+
+
+
+*** 프로토콜 사용시 일부 문자를 parsing해서 사용할 경우
+read(char[] cbuf, int off, int len) 메소드
+
+
+
+
+
+
+문자 기반 출력스트림 Writer class
+
+write(), flush(), close()
