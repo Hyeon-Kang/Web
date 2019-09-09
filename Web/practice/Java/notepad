@@ -2023,4 +2023,15 @@ ex) OutputStream
 
 int read(), (char[] cbuf), (char[] )
 
-write 등 다른 메소드와
+write 등 다른 메소드와 용법이 같다.
+
+
+    Reader reader = new FileReader("파일 경로");
+    int readData;
+    while( true ) {
+      readData = reader.read();
+      if(readData == -1) break;
+      System.out.print( (char) readData);
+    }
+
+    reader.close();
