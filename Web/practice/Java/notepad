@@ -1914,6 +1914,24 @@ List<String> list = ArrayList<String> (30); // 30칸 할당
 
 
 
+* ArrayList의 유효 객체 개수 구하기
+
+10칸을 가진 ArrayList 를 선언했다고 가정하자.
+
+list.add("java");
+list.add("JDBC");
+list.add("Servlet/JSP");
+
+다음과 같이 3개의 객체를 추가하고
+
+int size = list.size();
+System.out.printlnn("총 개체수 : " + size);
+
+print 문을 출력하면 list의 공간 수 10이 아닌 3이 출력된다.
+
+
+
+
 
 
 
