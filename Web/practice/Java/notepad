@@ -1884,6 +1884,10 @@ List 컬렉션
 
 배열처럼 인덱스로 관리
 
+    ex) List<String> list = ...;
+        list.add("hyeon");        // 맨 끝에 객체 추가
+        list.add(1, "kang");      // 1번 인덱스에 객체 삽입
+        String str = list.get(1); // list의 1번 인덱스에 저장된 값을 str에 저장
 
 
 
