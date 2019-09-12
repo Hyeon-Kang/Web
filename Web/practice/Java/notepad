@@ -1903,6 +1903,17 @@ for(String str : list) { // 매 루프마다 객체를 str에 저장
 
 
 
+물론 타입파라미터로 응용 가능
+
+List<E> list = new ArrayList<E> (); // default 10칸 할당
+
+List<String> list = ArrayList<String> (30); // 30칸 할당
+
+
+* ArrayList는 기본적으로 10칸이 할당되나 저장용량이 초과할 경우 자동으로 확장
+
+
+
 
 
 
