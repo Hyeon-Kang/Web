@@ -1895,6 +1895,13 @@ List 컬렉션
         list.remove("hyeono"); // list의 "hyeon" 객체 삭제
 
 
+* 전체 객체 루핑
+
+for(String str : list) { // 매 루프마다 객체를 str에 저장
+  printf(str);
+}
+
+
 
 
 
