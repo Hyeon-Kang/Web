@@ -1930,6 +1930,63 @@ System.out.printlnn("총 개체수 : " + size);
 print 문을 출력하면 list의 공간 수 10이 아닌 3이 출력된다.
 
 
+만약 list.add(1, "aaa"); 를 추가했다면
+
+ArrayList를 루핑 출력 했을 경우
+
+0 : java
+1 : aaa       // aaa를 1번 인덱스에 삽입하며 JDBC는 한 칸 뒤로 밀렸다.
+2 : JDBC
+3 : Servlet/JSP
+
+처럼 출력 될 것이다.
+
+
+삭제 역시 마찬가지로 인덱스 또는 객체 이름을 선언함으로 해당 객체를 제거할 수 있다.
+
+
+
+
+Vector
+
+Vector는 ArrayList와 용도가 같지만 Vector는 멀티스레드, ArrayList는 싱글스레드에서 사용함
+
+스레드 동기화(syncronization)가 되어 있기 때문에
+
+복수의 스레드가 동시에 접근해서 객체를 추가, 삭제하더라도 객체가 보호된다.
+
+선언 방식도 같다.
+
+List<E> list = new Vector<E> ();
+
+
+
+
+
+
+
+LinkedList
+
+
+연결리스트 객체 역시 ArrayList나 Vector처럼 선언하면 된다.
+
+List<E> llist = new LinkedList<E> ();
+
+
+연결리스트 특성을 그대로 계승
+
+객체의 삭제와 삽입이 빈번한 경우 ArrayList보다 좋은 성능을 발휘함
+
+단! 인덱스 참조 역시 불가능
+
+
+List 컬렉션 완료
+
+
+
+
+
+
 
 
 
