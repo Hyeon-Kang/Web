@@ -1986,6 +1986,45 @@ List 컬렉션 완료
 
 
 
+Set 컬렉션
+
+Set은 집합과 같다. HashSet 등
+
+중복저장이 불가능 하며 객체의 저장 순서가 따로 없음
+
+따라서 순환하는데 다음과 같이 순환객체를 따로 부르거나 반복문으로 부름
+
+ex)
+
+    Set <String> set = new HashSet <String> ();
+
+    set.add("Java");
+    set.add("JDBC");
+
+    Iterator <String> iterator = set.iterator();
+
+    while(iterator.hasNext() ) {
+        String element = iterator.next();
+        System.out.println("\t" + element);
+    }
+
+    * hasNext(), next() 순환객체 메소드 말고 그냥 반복문도 가능
+
+    for(String str : set) {
+        System.out.println("\t" + str);
+    }
+
+
+
+
+
+
+
+
+Map 컬렉션
+
+
+
 
 
 
