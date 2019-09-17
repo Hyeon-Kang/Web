@@ -2111,6 +2111,12 @@ ex)
 
 Map 인터페이스를 이용한 HashMap
 
+키 객체는 hashCode()와 equals()를 재정의 해서 동등 객체가 되면 같은 키로 판단 (중복, 덮어쓰기)
+
+= Key도 같고 value도 같으면 같은 키로 판단함
+
+키 값이 중복되면 새로운 value로 덮어씌워짐
+
 ex)
     Map <K, V> map = new HashMap<K, V> ();
 
@@ -2129,10 +2135,59 @@ ex)
 		System.out.println();
 
 
+    // 반복 획득
+    Set<String> keySet = map.keySet();
+		Iterator<String> keyIterator = keySet.iterator();
+		while(keyIterator.hasNext()) {
+		  String key = keyIterator.next(); // key set으로 가져옴
+		  Integer value = map.get(key);
+		  System.out.println("\t" + key + " : " + value);
+		}
+		System.out.println();
 
 
 
 
+
+Hashtable 구현 (synchronized hashMap)
+
+hashMap과 key와 value 취급이 같다.
+
+hashMap처럼 중복 안 됨
+
+hashtable은 스레드 동기화(synchromized) 처리가 되어있어
+
+복수의 스레드가 접근해도 보호받는다.
+
+멀티 스레드 환경에선 hashMap 대신 hashTable을 사용하는 것이 좋다.
+
+
+
+
+
+
+Properties
+
+키와 값을 모두 String 타입으로 제한한 Map 컬렉션
+
+~.properties 파일을 읽어들일 때 주로 사용한다.
+
+* .properties 파일은 옵션정보, DB연결 정보, 다국어 정보를 기록한 텍스트 파일
+
+애플리케이션에서 주로 변경이 잦은 문자열을 저장해서 유지 보수를 편리하게 만들어 줌
+
+ex)
+    [database.properties] 키 = 값으로 구성된 프로퍼티
+
+    driver=oracle.jdbc.OracleDriver
+    url=jdbc:oracle:thin:@localhos.:1521:orcl
+    username=scott
+    password=tiger
+
+
+키와 값이 '=' 기호로 연결되어있는 텍스트 파일 (ISO 8859-1 * 한글 없음 *) 문자셋으로 저장
+
+한글의 경우 유니코드로 변환되어 저장
 
 
 
