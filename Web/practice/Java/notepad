@@ -2085,9 +2085,13 @@ ex)
     Iterator <K> keyIterator = keySet.iterator();
 
     while(keyIterator.hasNext()) {
-        K key = keyItterator.next();
-        V value = map.get(key);
+        K key = keyItterator.next(); // 결과 값으로 Key로 구성된 Set 리턴
+        V value = map.get(key);      // 즉 Key만 따로 얻었기 때문에 value를 얻기 위해 추가작업
     }
+
+    // 결과 값으로 Key로 구성된 Set 리턴
+    // 즉 Key만 따로 얻었기 때문에 2차 가공
+
 
     * entrySet(); 메소드 사용
 
@@ -2095,8 +2099,36 @@ ex)
     Iterator <Map.Entry<K, V>> entryIterator = entrySet.iterator();
 
     while (entryIterator.hasNext()) {
-
+        Map.entry <K, V> entry = entryIterator.next();  // Map.entry 획득
+        K key = entry.getKey();
+        V value = entry.getValue();
     }
+
+    // Map 형태로 얻어와서 바로 Key와 Value로 분할 가능
+
+
+
+
+Map 인터페이스를 이용한 HashMap
+
+ex)
+    Map <K, V> map = new HashMap<K, V> ();
+
+    Map<String, Integer> map = new HashMap<String, Integer>();
+
+		//��ü ����
+		map.put("신용권", 85);
+		map.put("홍길동", 90); // 홍길동 1
+		map.put("동장군", 80);
+		map.put("홍길동", 95); // 홍길동 2(중복, 갱신)
+
+		System.out.println("총 Entry 수: " + map.size()); // 사이즈 3 출력
+
+		//��ü ã��
+		System.out.println("홍길동 : " + map.get("홍길동")); // 홍길동 : 95 출력 (처음 입력한 90은 덮어씌워짐)
+		System.out.println();
+
+
 
 
 
