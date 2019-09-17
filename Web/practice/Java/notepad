@@ -2192,6 +2192,42 @@ ex)
 
 
 
+Properties 객체 생성
+
+ex)
+    Properties properties = new Properties(); // 객체 생성
+    properties.load(new FileReader("C:/~/database.properties"));
+
+
+
+    * ClassPath를 이용
+
+    String path = 클래스.class.getResource("database.properties").getPath();
+    // properties 파일이 같은 경로에 있는 경우
+
+    path = URLDecoder.decode(path, "utf-8");  // 경로에 한글이 있을 수 있으므로 utf-8로 복원
+    Properties properties = new Properties();
+    properties.load(new FileReader(path));
+
+    String path = A.class.getResource("config/database.properties").getPath();
+
+    // A class - config - database.properties 다른 경로에 있는 경우
+
+
+
+    * 값 읽기
+
+    // properties 객체를 얻어온 이후 값을 추출하는 절차
+
+    String value = properties.getProperty("key");
+
+
+    사용 예시는 Collection/Map/ *Properties.java 참조
+
+
+
+    
+
 
 
 
