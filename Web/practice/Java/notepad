@@ -2262,7 +2262,7 @@ ex)
 
 
 
-
+////
 
 
 main.c
@@ -2326,6 +2326,38 @@ void main() {
 
 
 
+/////
+
+#include<stdio.h>
+
+int main(int argc, char *argv[]) {
+
+  int n;
+  //extern char *optarg;
+  //extern int optind;
+
+  //printf("Current Optind : %d\n", optind);
+
+  while((n = getopt(argc, argv, "au:h")) != -1) {
+    switch (n) {
+      case 'a' :
+        printf("Welcome to System Programming (2019-2)\n");
+        break;
+      case 'u' :
+        printf("Nice to meet you, %s\n", argv[2]);
+        break;
+      case 'h' :
+        printf("Option List : a, u, h");
+        break;
+      default :
+        printf("ERROR: please provide at least one option.");
+        break;
+    }
+  }
+
+}
+
+1.프로그램 명 : hallym -> 실행 예시 ./hallym -a, -u 인자, -h
 
 
 
