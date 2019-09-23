@@ -2300,6 +2300,18 @@ MyFunctionalInterfae fi = (x) -> {...}
 람다식/argument/* 참조
 
 
+ex)
+    public interface MyFunctionalInterfae {
+        public void method(int x, int y);
+    }
+
+    MyFunctionalInterfae fi = (x, y) -> {
+        int result = x + y;
+        return result;
+    };
+
+    System.out.println(fi.method(2, 5));
+
 ////
 
 
