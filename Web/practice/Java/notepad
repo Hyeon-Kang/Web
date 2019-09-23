@@ -2312,6 +2312,16 @@ ex)
 
     System.out.println(fi.method(2, 5));
 
+
+
+
+
+
+
+
+
+
+
 ////
 
 
@@ -2426,12 +2436,12 @@ int main(int argc, char *argv[]) {
 
   for(int i =1; i<101; i++) {
     if( (size*add)-1 < i ) {
-      printf("변경 전 size 값 : %d ->", size);
+      printf("변경 전 size 값 : %d ->", size*add);
       add *= 2;
       printf(" 변경 후 size 값 : %d", size*add);
     }
     arr = malloc( sizeof(int) * size * add ); // int형 size만큼 할당
-    arr[i] = i
+    arr[i] = i;
     n++;
     printf("arr[%d] : %d", i, i);
 
@@ -2441,8 +2451,26 @@ int main(int argc, char *argv[]) {
   printf("n : %d, size : %d, sum : %d ", n, size*add, sum);
 
 
+  for(int i=100; i>10 ; i--) {
+
+    if( n <= (size*add)/4 ) {
+      printf("변경 전 size 값 : %d ->", size*add);
+      add /= 2;
+      printf(" 변경 후 size 값 : %d \n", size*add);
+    }
+    arr = malloc( sizeof(int) * size * add ); // int형 size만큼 할당
+    arr[i] = i;
+    n--;
+
+    printf("arr[%d] : %d\n", i, i);
+
+    sum += arr[i]; // 총합 구하기
+  }
+
+  printf("n : %d, size : %d, sum : %d \n", n, size*add, sum);
 
 
+  free(arr);
 
 
 } // end main
