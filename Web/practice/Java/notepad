@@ -2279,7 +2279,7 @@ ex) 인터페이스 변수 = 람다식;
 
 
 
-ex) 매개변수와 리턴값이 없는 람다식이
+매개변수와 리턴값이 없는 람다식
 
     @FunctionalInterface
     public interface MyFunctionalInterfae (
@@ -2291,7 +2291,15 @@ ex) 매개변수와 리턴값이 없는 람다식이
 
 
 
-    
+
+
+매개변수가 있는 람다식
+
+MyFunctionalInterfae fi = (x) -> {...}
+
+람다식/argument/* 참조
+
+
 ////
 
 
