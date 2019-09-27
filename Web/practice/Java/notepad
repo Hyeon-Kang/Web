@@ -2393,26 +2393,22 @@ void main() {
 int main(int argc, char *argv[]) {
 
   int n;
-  //extern char *optarg;
-  //extern int optind;
-
-  //printf("Current Optind : %d\n", optind);
-
-  while((n = getopt(argc, argv, "au:h")) != -1) {
+  int crypt;
+  boolean cflag = false;
+  while((n = getopt(argc, argv, "c:")) != -1) {
     switch (n) {
-      case 'a' :
-        printf("Welcome to System Programming (2019-2)\n");
-        break;
-      case 'u' :
-        printf("Nice to meet you, %s\n", argv[2]);
+
+      case 'c' :
+        printf("cripting (%d).....\n", argv[2]);
+        crypt = atoi(argv[2]); // 변환 파라미터 저장
+        cflag = true;
         break;
       case 'h' :
-        printf("Option List : a, u, h");
-        break;
-      default :
-        printf("ERROR: please provide at least one option.");
+        printf("Option List : -c number");
         break;
     }
+
+
   }
 
 }
@@ -2479,6 +2475,64 @@ int main(int argc, char *argv[]) {
 
 
 
+/// Q4 저수준 파일 입출력으로 파일 복사 -c 옵션으로 파일 호화
+
+파일명 : lowcopy
+
+1. lowcopy 원본 파일, 사본 파일
+2. lowcopy -c 숫자 원본파일 사본파일
+
+getopt case문
+
+case 'c' :
+    for(int i =0; i<(arr[3].lengh))
+
+- 파일 open (rw 모드로)
+
+- argv[1]파일 만들고 복사
+-
+
+
+
+/////
+
+#include<stdio.h>
+
+
+
+int main(int argc, char *argv[]) {
+
+  int n;
+  int crypt;
+  boolean cflag = false;
+  while((n = getopt(argc, argv, "c:")) != -1) {
+    switch (n) {
+
+      case 'c' :
+        printf("cripting (%d).....\n", argv[2]);
+        crypt = atoi(argv[2]); // 변환 파라미터 저장
+        cflag = true;
+        break;
+      case 'h' :
+        printf("Option List : -c number");
+        break;
+    }
+
+
+  }
+
+int rfd, wfd, nn;
+char buf[10];
+
+rfd = open(argv[1], O_RDONLY);
+if(rfd == -1) {
+    perror("Open %s\n", argv[1]);
+}
+  if(cfalg == true) {
+      while()
+  }
+
+}
 
 
 
