@@ -144,7 +144,7 @@ public class ChatServerThread implements Runnable {
 		try {
 			// 메소드 알아두기
 			oos.println("내 이름: " + user_id);
-        	oos.flush();
+        	        oos.flush();
 		} catch (Exception e) {}
 	}
 
