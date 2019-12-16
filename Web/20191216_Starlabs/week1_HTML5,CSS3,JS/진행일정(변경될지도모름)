@@ -37,9 +37,10 @@
             curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
             nvm install --lts (오류 발생! 스킵!)
-            참조 링크 : https://trustyoo86.github.io/nodejs/2019/02/18/ubuntu-nvm.html
 
-            (우회)
+            오류 참조링크 : https://trustyoo86.github.io/nodejs/2019/02/18/ubuntu-nvm.html
+
+            (참조 링크로 우회)
 
             관련 패키지 설치
             sudo apt-get install build-essential libssl-dev
@@ -55,3 +56,38 @@
 
         2. Yarn 설치하기
             설치 참조 링크 : https://zetawiki.com/wiki/%EC%9A%B0%EB%B6%84%ED%88%AC_yarn_%EC%84%A4%EC%B9%98
+
+            yarn 설치
+            sudo apt install yarn (패키지를 못 찾는 오류 발생!)
+
+            오류 참조링크 : https://www.deok.me/entry/NodeJS-yarn-%EC%9D%84-%EC%84%A4%EC%B9%98%ED%95%98%EA%B3%A0-yarn-%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-%ED%8C%A8%ED%82%A4%EC%A7%80-%EA%B4%80%EB%A6%AC%ED%95%98%EA%B8%B0
+
+            (참조 링크로 우회)
+
+            1. 저장소 등록하기
+            curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+
+            무언가 키값 or list 정보 추가
+            echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+            2. yarn 설치하기
+            sudo apt-get update && sudo apt-get install yarn
+
+            3. yarn 설치 및 버전 확인
+            yarn --version (오류 발생!)
+
+            The program 'yarn' is currently not installed. To run 'yarn' please ask your administrator to install the package 'cmdtest'
+
+            cmdtest를 설치하라 함...
+
+            오류 참조링크 : https://stackoverflow.com/questions/42606941/install-yarn-ubuntu-16-04-linux-mint-18-1
+
+            (참조 링크로 우회!)
+
+            npm 을 사용하여 yarn 설치
+            npm install -g yarn
+
+            다시 yarn 설치 및 버전 확인
+            yarn --version
+
+            정상 설치 확인
