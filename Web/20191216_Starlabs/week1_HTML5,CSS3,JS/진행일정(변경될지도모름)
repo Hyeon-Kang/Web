@@ -3,6 +3,8 @@
 2. React?
     리액트는 페이스북에서 제공해주는 프론트엔드 라이브러리.
 
+    React 개요 참조링크 : https://velopert.com/3612
+
     리액트를 왜 사용하는가?
         사실 리액트를 사용하지 않아도 얼마든지 웹 페이지를 html, css를 이용해 만들 수 있다.
         그러나 html과 css등으로만 만들어진 웹페이지는 동적인 데이터를 UI에 뿌려주기에는 적합하지 않다.
@@ -10,4 +12,46 @@
 
     리액트의 특징?
         - 컴포넌트
-        - One Wat Data flow : 데이터 한 방향 흐름 (C 컴파일러처럼)
+        - One Wat Data flow : 데이터 한 방향 흐름 (C 컴파일러처럼 인듯 하다)
+        - Props and State
+            Props(소품?) 부모 -> 자식 (데이터 전달), 최상위 부모 컴포넌트만 props 변경 가능
+            : 접근 제한이 걸려있는 공유 메시지 객체?
+
+            State 동적 데이터를 다룰 때  사용 (Ajax처럼?)
+
+            좀 더 써봐야 알듯
+
+        - Virtual DOM
+            HTML 코드에 대한 가상공간을 만들고 변경이 되었다면 대조 후 변경 구간만 갱신
+            (AJAX랑 무슨 차이??)
+
+
+    React 설치
+        Ubuntu 16.04 LTS에서 실습 진행
+
+        용어정리 npm(Node Package Manage)
+
+        1. Node.JS 설치하기
+
+            nvm 설치
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+
+            nvm install --lts (오류 발생! 스킵!)
+            참조 링크 : https://trustyoo86.github.io/nodejs/2019/02/18/ubuntu-nvm.html
+
+            (우회)
+
+            관련 패키지 설치
+            sudo apt-get install build-essential libssl-dev
+
+            nvm 설치 (위에서 이미 설치했으므로 생략)
+            curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
+            bashrc를 통해 적용 (사용자 bash 쉘 업데이트)
+            source ~/.bashrc
+
+            nvm, npm 설치 확인
+            nvm --version
+
+        2. Yarn 설치하기
+            설치 참조 링크 : https://zetawiki.com/wiki/%EC%9A%B0%EB%B6%84%ED%88%AC_yarn_%EC%84%A4%EC%B9%98
