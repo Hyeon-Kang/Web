@@ -582,6 +582,9 @@ html 특수기호
 
 
 18. CSS 포지셔닝
+
+    참조 링크 : https://www.youtube.com/watch?v=INYi4tSGf_o&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=18
+
     객체들을 알맞게 배치하는 것
 
     콘텐츠 너비 다루는 옵션
@@ -597,6 +600,9 @@ html 특수기호
 
         - float: left | right | none
 
-        - clear : 기존의 규칙을 무시하고 새로운 공간에서 배치 시작 (새로운 단락으로 넘어가는 것 같음) 
+        - clear : 기존의 규칙을 무시하고 새로운 공간에서 배치 시작 (새로운 단락으로 넘어가는 것 같음)
 
-        - positi
+        - position: static | relative | absolute | fixed
+          static : 요소를 문서의 흐름에 맞추어 배치 (좌표값이나 사이즈 일일히 지정해주어야 함)
+
+          relative :
