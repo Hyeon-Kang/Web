@@ -378,4 +378,102 @@ html 특수기호
     텍스트에 줄 긋기 (밑줄, 삭선 등)
     text-decoration:옵션
 
+    ex) 하이퍼링크의 경우 밑줄이 자동으로 생기는 경우가 있다. 이를 제거하기 위해서는
+
+    a {
+        text-decoration:none;
+    }
+
+    텍스트 그림자
+    text-shadow:5px 5px 10px red;
+
+    공백 인식 처리
+    white-space : normal | nowrap | pre | pre-line | pre-wrap
+
+    normal : 기본 값, 여러 공백이 있어도 하나만 인식
+    pre : 보이는 그대로, 다만 자동 줄바꿈은 안 해줌
+    pre-wrap : 보이는 그대로 + 자동 줄바꿈
+    pre-line : normal + 자동 줄바꿈
+
+
+12. 텍스트 스타일
+
+    글자간격 설정
+    letter-spacing : normal | <크기>
+
+    단어간격 설정
+    word-spacing : normal | <크기>
+
+    문단 들여쓰기 옵션
+    text-indent: <크기> | <백분율>
+
+    문단의 줄 간격 옵션
+    line-height: <크기> | <백분율>
+
+    목록 기호 옵션 조정
+    list-style-type : none | <순서 없는 목록의 불릿> | <순서 목록의 번호>
+
+    * 순서 목록의 경우 속성 값에 따라 달라지므로 검색하고 사용할 것
+
+
+    목록 기호 이미지도 가능함!
+    list-style-image : <이미지> | none
+    <이미지> = url(이미지 파일 경로)
+
+    ex)
+    <style>
+        ul {
+            list-style-image:url('images/dot.png'); /* 불릿으로 사용할 이미지 */
+        }
+    </style>
+
+
+    목록 들여쓰기 / 내어쓰기
+    list-style-position : inside | outside;
+
+
+    ** 세부 속성으로 구분이 가능하므로 여러 옵션 지정시 한 번에 적용가능함
+
+    ex)
+    ul {
+        list-style: lower-alpha, inside ;
+    }
+
+
+13. 배경 색, 배경 이미지
+    background-color: <색상>;
+    background-image: url(이미지 경로);
+        - background-size: auto(원본크기) | contain (가득 차도록 조정) | cover(요소를 모두 덮도록 조정)
+
+        - 배경이미지 위치 고정(스크롤 하면 컨텐츠만 움직임)
+        background-attachment:fixed;
+
+    ** list-style처럼 한번에 적용 가능함
+    ex) background:url('이미지 경로') no-repeat fixed right bottom;
+
+
+
+16. CSS와 박스모델
+    박스모델을 통해 웹영역 구분을 한다.
+
+    ex)
+    <style>
+        .box1 {
+            width:200px; /* 고정 너비 */
+            height:100px; /* 높이 */
+            background:#ff6a00;  /* 배경색 *]
+        }
+        .b0x2 {
+            width:50; /* 가변 너비 - 브러우저 창 너비의 50% */
+            height:100px; /* 높이 */
+            background:#0094ff; /* 배겅색 */
+        }
+        div {
+            margin:10px /* div 간 여백 */
+        }
+
+    display:속성 -> 블록 배치 옵션
+
+    속성 값은 다양하므로 검색할것!
+
     
