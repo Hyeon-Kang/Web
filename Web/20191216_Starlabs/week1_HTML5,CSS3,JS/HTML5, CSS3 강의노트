@@ -580,4 +580,23 @@ html 특수기호
     </style>
 
 
-    
+
+18. CSS 포지셔닝
+    객체들을 알맞게 배치하는 것
+
+    콘텐츠 너비 다루는 옵션
+        - content-box
+            박스모델의 너비는 콘텐츠의 width 뿐만이 아닌 padding과 border까지 포함된 길이다.
+
+        - border-box
+            content-box처럼 콘텐츠 width와 padding, border 모두 따로 계산하기 싫다면
+            border-box 옵션을 사용하여 셋 모두를 합쳐 width 값으로 사용하는 방법이 있다.
+
+    float, clear
+        component를 왼쪽이나 오른쪽에 떠 있게 만듦
+
+        - float: left | right | none
+
+        - clear : 기존의 규칙을 무시하고 새로운 공간에서 배치 시작 (새로운 단락으로 넘어가는 것 같음) 
+
+        - positi
