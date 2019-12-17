@@ -454,8 +454,13 @@ html 특수기호
 
 
 16. CSS와 박스모델
-    박스모델을 통해 웹영역 구분을 한다.
+    블록 레벨 요소 : 빈 영역까지 일정 구간을 가득 채움
+    인라인 레벨 요소 : 요소가 있는 공간만 가짐
 
+    박스모델 : 실제 내용이 표시되는 영역을 기준삼아 사각형으로 나눈 영역(마진/margin, 테두리/border, 패딩/padding, 콘텐츠)
+
+    실제 콘텐츠 너비 계산하기
+    모던 브라우저에서 박스모델의 전체 너비 = 콘텐츠 width 값 + 좌우 패딩 + 좌우 테두리 (마진은 제외되는 것 유의!)
     ex)
     <style>
         .box1 {
@@ -472,8 +477,107 @@ html 특수기호
             margin:10px /* div 간 여백 */
         }
 
-    display:속성 -> 블록 배치 옵션
+    display:속성
+        블록 레 벨요소 -> 인라인 레벨 요소
+        인라인 레벨 요소 -> 블록 레벨 요소
+        서로 전환할 때 사용
+
+        :block          인라인 -> 블록
+        :inline         블록   -> 인라인
+        :inline-block   인라인으로 배치 후 블록처리
+        :none
+
+
 
     속성 값은 다양하므로 검색할것!
+
+    display:inline-block
+    display:none 해당 요소를 감춤
+
+
+17. 테두리와 여백
+    border-style 속성
+    기본 값은 none, 화면에 테두리는 보이지 않는다.
+
+    <style>
+        .box1 { border-style:solid } /* 실선 */
+        .box2 { border-style:dotted; } /* 점선 */
+        .box3 { border-style:dashed; } /* 선으로 된 점선 */
+        위 옵션보다 훨씬 더 많이 있음
+    </style>
+
+
+
+    테두리 두께 설정
+
+    border-width: <크기> | thin | medium | thick
+    border-top-width: <크기> | thin | medium | thick
+    border-right-width: <크기> | thin | medium | thick
+    border-left-width:
+    (시계방향)
+
+    .box1 { border-width:2px; }
+    .box2 { border-width:thick thin; } -> thick(위, 아래), thin(좌, 우)
+    .box3 { border-width:5px 10px 15px 20px; } 인자가 4개인 경우
+    top -> right -> bottom -> left (시계방향)
+
+
+    테두리 색상 설정
+
+    border-top-color: <색상>
+    border-right-color: <색상>
+    border-bottom-color: <색생>
+    ....
+
+
+    ** 한번에 적용
+    border: <두께> | <색상> | <스타일>
+
+    ex)
+    <style>
+        h1 {
+            padding-bottom: 5px;
+            border-bottom: 3px solid #ccc; /* 아랫 부분 -3px 회색 실선 */
+        }
+
+        p {
+            padding: 10px;
+            border: 2px dotted black; /* 모든 방향 -3px 짜리 검정 점선 */
+        }
+    </style>
+
+    <h1>박스 모델</h1>
+    <p>박스 모델은 실제...... </p>
+
+
+    박스 모서리 둥글게 처리
+    border-radius 속성
+
+    border-radiun: <크기_ 원의 반지름> | <백분율>
+
+    ex)
+    <style>
+    .round {
+        border: 2px solid red; /* 2px 빨강 실선 */
+        border-radius:20px; /* 모서리 20px 만큼 라운딩 */
+    }
+    #bg {
+        background:url(images/pic1.jpg) no-repeat; /* 배경 이미지 */
+        background-size:cover; /* 이미지 사이즈 - 영역 가득 채우게 설정 */
+    }
+    </style>
+
+
+    박스 그림자 효과 추가
+
+    box-shadow none | <그림자 값>;
+    <그림자 값> = <수평 거리> <수직 거리> <흐림 정도> <번짐 정도> <색상>
+
+    ex)
+    <style>
+        .box1{ box-shadow:2px -2px 5px 0px black;}
+        .box2{ box-shadow:5px 5px 15px 5px gray;}
+    </style>
+
 
     
