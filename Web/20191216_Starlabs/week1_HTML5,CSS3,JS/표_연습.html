@@ -1,21 +1,60 @@
-<figure>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>html 실습</title>
+</head>
+<body>
+    <ul>
+        <li>목차</li>
+        <ol>
+            <li><a href="#prof">프로필</a></li>
+            <li><a href="#cont1">텍스트1</a></li>
+        </ol>
+    </ul>
 
-    <figcaption>프로필 작성하기</figcaption>
-    <table border = "1">
 
-        <tr>
-            <th>이름</th>
-            <td>강현</td>
-        </tr>
-        <tr>
-            <th>연락처</th>
-            <td>010-1234-1234</td>
-        </tr>
-        <tr>
-            <th>프로필 사진</th>
-            <td><img src ="cat.jfif" alt = "표기 오류시 대체 텍스트"</td>
-            </tr>
-    </table>
-    <!-- <figcaption>표 제목 하단에 붙이기</figcaption> -->
-    <p><a href="https://www.youtube.com/watch?v=pLpZ9G8iomo" target="_blank">html 학습자료 링크</a></p>
-</figure>
+    <div id="prof">
+        <figure>
+
+            <figcaption>프로필 작성하기</figcaption>
+            <table border = "1">
+
+                <tr>
+                    <th>이름</th>
+                    <td>강현</td>
+                </tr>
+                <tr>
+                    <th>연락처</th>
+                    <td>010-1234-1234</td>
+                </tr>
+                <tr>
+                    <th>프로필 사진</th>
+                    <td><img src ="cat.jfif" alt = "표기 오류시 대체 텍스트" usemap="#cat">
+                        <map name = "cat">
+                            <area shape="rect" coords="30,30,100,100"
+                            href="https://cloud.google.com" target="_blank" alt="gcp 콘솔로 이동">
+                            <area shape="rect" coords="130,30,100,100"
+                            href="https://ko.wikipedia.org/wiki/%ED%8C%80_%EB%B2%84%EB%84%88%EC%8A%A4%EB%A6%AC" target="_blank" alt="위키백과 팀 버너스리">
+                        </map>
+
+                    </td>
+                </tr>
+            </table>
+            <!-- <figcaption>표 제목 하단에 붙이기</figcaption> -->
+            <p><a href="https://www.youtube.com/watch?v=pLpZ9G8iomo" target="_blank">html 학습자료 링크</a></p>
+        </figure>
+    </div>
+
+
+
+    <div id="cont1">
+        <p>버너스리는 잉글랜드 런던에서 태어났으며,[1] 부모는 메리 리 우즈(Mary Lee Woods)와 콘웨이 버너스리(Conway Berners-Lee)이다.
+
+1990년에 낸시 칼슨(Nancy Carlson)과 결혼하였으나 2011년 이혼하였다.
+
+2014년, 버너스리와 로즈메리 리스(Rosemary Leith)가 런던 세인트 제임스 궁전에서 결혼하였다.[2]</p>
+    </div>
+
+</body>
+</html>
