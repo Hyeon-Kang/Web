@@ -221,4 +221,161 @@ html 특수기호
     선택자 스타일 속성 속성 값
     p { text-aligh: center; }
 
-    p {color: blue; font-size: 16px;} *
+    p {color: blue; font-size: 16px;}
+
+    내부 스타일 시트는 <head>태그 안에
+    다른 문서에도 모두 적용할 스타일 시트는 외부에 따로 파일 형식으로 가지고 있다.
+    ex) <link rel="stylesheet" type="text/css" href="http://aaa.css주소 적기"
+
+
+
+    주요 선택자list
+
+    - 전체 선택자 *   : 하위 모든 요소에 적용
+      ex) * {
+                margin:0;
+                padding:0;
+            }
+
+    - 태그 선택자     : 문서에서 특정 태그를 사용한 모든 요소에 스타일 적용
+    ex) 태그{ 스타일 }
+
+    <head>
+    <style>
+        h2 {
+            color:blue;
+        }
+        p {
+            font-size:12px;
+            margin-left:20px;
+        }
+    </style>
+
+
+    - 클래스 선택자, id 선택자
+        클래스 선택자 : 문서 내에서 여러 번 반복
+        ex) .클래스이름
+        .redtext {
+            color: red; /* 글자색 */
+        }
+
+        h2.bluetext {
+            color:blue; /* 글자색 */
+        }
+
+        id 선택자 : 문서 안에서 한번만 사용
+        ex) #클래스이름
+        #container {
+            background: #ff6a00; /* 배경색 */
+            width:400px; /* 너비 */
+            height:200px; /* 높이 */
+            margin:0 auto; /* 가로로 중앙에 배치 */
+        }
+
+        * id 선택자를 여러번 사용해도 브라우저에선 정상적으로 나온다. 하지만 엄연히 잘못된 사용! 웹 표준에 맞지 않는다.
+
+
+        클래스 선택자 적용 예시
+        <p><span class="redtext">USDA 인류 영양 연구선테 (thie USAD Human Nutrition Research Center) ....</p>
+
+        해당 클래스가 적용된 텍스트는 .redtext 의 속성이 적용됨
+
+
+    - 그룹 선택자
+        같은 속성을 갖는 선택자를 그룹처리
+
+        ex)
+        h1 {
+            text-align:center; /* 가운데 정렬 */
+        }
+
+        h2 {
+            text-align:center; /* 가운데 정렬 */
+        }
+
+        위와 같이 h1 태그와 h2 태그의 css 옵션이 같은 경우
+
+        h1, h2 {
+            text-align:center; /* 가운데 정렬 */
+        }
+
+        요렇게 일괄처리 가능
+
+
+10. CSS Cascading
+
+    Cascading : 위에서 아래로 흐른다?
+
+    선택자에 여러 스타일이 적용될 때 스타일 충돌을 막기 위해 '위에서 아래로 흐르며 적용되는' 방법을 선택
+
+    즉 스타일 적용의 우선순위를 다룬다.
+
+    스타일 우선도  : 사용자 스타일 > 제작자 스타일 > 브라우저 스타일
+                   : 인라인 스타일(개별적용) > id 스타일 > 클래스 스타일 > 태그 스타일
+
+    스타일간 우선순위가 동등한 경우 나중에 적용된 스타일이 먼저 적용된 스타일을 덮어씀
+
+
+
+** 브라우저 접두사 (브라우저별 엔진이 다르므로...)
+
+    -prefix-free.js
+
+    다운로드 경로 -> http://leaverou.github.io/prefixfree/
+    적용하면 브라우저 접두사 없이 CSS3 속성 자유롭게 사용 가능
+
+
+    ex)
+    <head>
+        <script src="prefixfree.min.js"></script>
+        <style>
+            .box:hover {
+                transform: rotate(15deg);
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box">Mouse Over</div>
+    </body>
+
+
+11. 글꼴 관련 스타일
+    font-family
+
+    웹 문서에서 글꼴을 지정하는 경우 한 가지 글꼴만 지정하지만 시스템에 해당 폰트가 없을 경우를 대비하 2~3개까지 선언함
+    ex) body { font-family:"맑은 고딕", 돋움, 굴림 }
+
+
+    웹 폰트
+        해당 링크를 넣고 스타일 적용
+
+
+    *** <p>text text <span>texttext</span> text text </p>
+    여기서 <span>만 스타일 처리 하고 싶다면?
+
+    p span {
+        font-size 30px;
+    }
+
+
+    폰트 사이즈
+    font-size:30px;
+
+    폰트 진하기
+    font-weight:600;
+
+    폰트 스타일 ex)이탤릭체
+    font-style:italic;
+
+    색상 적용
+    color : <색상>
+
+    rgb(0,200,0); or color:blue; color:90C3D4;
+
+    여러 방식으로 표현 가능
+
+    텍스트에 줄 긋기 (밑줄, 삭선 등)
+    text-decoration:옵션
+
+    
