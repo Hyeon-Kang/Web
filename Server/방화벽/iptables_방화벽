@@ -1,0 +1,30 @@
+
+            방화벽 설정
+
+            *** ufw 와 iptables 둘중 하나만 사용해야 함!!!
+            현재 iptables 을 사용하므로 ufw는 비활성화 해주어야 한다.
+            ufw disable
+
+            참조링크 : https://server-engineer.tistory.com/418
+            iptables 초기 설정 참조링크 : https://linuxkill.tistory.com/88
+            iptables 방화벽 정책 참조링크 : https://ndb796.tistory.com/262
+
+
+            1. 열려있는 모든 포트 표시
+            netstat -nap
+
+            2. 확인하려는 포트번호 상태확인
+            netstat -nap | grep 포트번호
+
+            3. 특정 포트 외부접근 허용 (내부에서 외부 허용은 아님!)
+            iptables -I INPUT 1 -p tcp --dport 3000 -j ACCEPT
+
+            iptables -I OUTPUT 1 -p tcp --dport 3000 -j ACCEPT
+
+            * 반대로 내부에서 외부 접근을 허용할 경우 INPUT -> OUTPUT
+
+            4. 변경사항 저장
+            service iptables save
+            /etc/init.d/iptables restart
+
+            iptables -I OUTPUT 1 -p tcp --dport 3000 -j ACCEPT
