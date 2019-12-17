@@ -157,3 +157,6 @@
             /etc/init.d/iptables restart
 
             iptables -I OUTPUT 1 -p tcp --dport 3000 -j ACCEPT
+
+
+        
