@@ -1,0 +1,77 @@
+HTML5 문서 기본 구조
+
+<!doctype html> // 대소문자 구분 상관 없음 (!DOCTYPE html, !doctype html)
+<html lang="ko"> // lang="ko" 를 추가해주는것이 좋다. (시각장애인 배려, 문서에서 사용할 언어 지정)
+    <head>
+        <meta charset="utf-8"> // 문자 인코딩 방법 및 문서의 키워드와 요약정보 지정
+        <title>내가 처음 만드는 HTML 문서</title> // 문서 제목표시
+    </head>
+    <body>
+    </body>
+</html>
+
+c언어에서 \입력시 특정 서식문자를 통해 표기하는 것 처럼 html도 특수기호가 있다.
+
+html 특수기호
+
+& &amp;
+(공백한칸) &nbsp;
+< &lt;
+> &gt;
+
+등등...
+
+
+02. 텍스트 관련 태그
+영상 링크 : https://www.youtube.com/watch?v=OoWeMRkKLVs
+
+- 텍스트를 묶어주는 태그?
+    제목 표시 <hn></hn>     ex) <h1></h1>
+    줄 바꾸기 <br>
+    텍스트 단락 구분 <p>텍스트</p> ex) 텍스트 앞뒤로 빈 줄이 생기며 단락구분
+    분위기 전환? <hr>       ex) 수평줄이 생긴다. css로 제거 가능
+    인용문 넣기 <blockquote>인용 텍스트</blockquote>   ex) <p></p>와 비슷하나 더 안으로 들여써짐
+    입력한 그대로 표시 <pre> 텍스트 </pre>
+
+- 텍스트를 한 줄로 표시하는 태그
+    볼드체
+        중요, 강조해야 할 때 <strong>
+        단순히 굵게 표시 <b>
+    이탤릭체
+        흐름상 특정 부분 강조 <em>
+        단순히 이탤릭체로 표시 <i>
+    인용 내용 표시
+        지정 텍스트 앞뒤에 큰따옴표 추가 <q>
+    영엮 묶기
+        인라인(줄 안에서) 묶기 <span>
+        블록 (단락) 묶기 <div>
+
+- 목록을 만드는 태그
+    순서없음 <ul>
+    순서있음 <ol>
+    목록 안의 세부 항목 <li>
+    (목록연습.html 참조)
+
+    또 다른 목록 작성
+    <dl>, <dt>, <dd>
+
+- 표를 만드는 태그
+    표 지정 <table> ~ </table>
+    행 표현 <tr> ~ </tr>
+    특정 셀을 제목 셀로 지정 <th> ~ </th>
+    셀 생성 <td> ~ </td>
+    행 or 열 합치기 colspan, rowspan
+    셀 너비 지정
+                    <colgroup>
+                        <col style="width:100px;">
+                    </colgroup>
+
+    표 영역 지정 <thead>, <tbody>, <tfoot>       화면낭독기, 자동화 스크립트 분석 기준으로 사용
+
+    열끼리 묶어 스타일 지정 <col>, <colgroup>
+    <col> 태그는 닫는태그가 없으며 열의 개수만큼 선언해야 한다.
+
+
+03. 이미지와 하이퍼링크
+    이미지 삽입 태그 <img src="경로" alt="이미지 표시 오류시 대체 텍스트">
+    
