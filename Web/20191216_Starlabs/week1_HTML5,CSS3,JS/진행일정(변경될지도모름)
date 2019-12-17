@@ -91,3 +91,69 @@
             yarn --version
 
             정상 설치 확인
+
+
+        3. create-react-app 설치 및 사용
+            npm을 사용하여 설치
+            npm install -g create-react-app
+
+            ** npm 설치 오류 발생!
+            참조링크 : https://askubuntu.com/questions/1088662/npm-depends-node-gyp-0-10-9-but-it-is-not-going-to-be-installed
+            sudo apt-get install nodejs-dev node-gyp libssl1.0-dev
+            sudo apt-get install npm
+            ** npm 설치 오류 해결!
+
+            yarn을 사용하여 설치
+            yarn global add create-react-app (시도 안 해봄! 추가 세팅이 필요함)
+
+            사용 예시 (hello-react 이름의 애플리케이션 패키지 생성인듯)
+            create-react-app hello-react
+
+            cd hello-react (프로젝트 폴더로 들어가서)
+            yarn start (프로젝트 실행, Django나 NginX 처럼 웹페이지가 팝업되야 하나 yarn build  오류 발생!!)
+
+            yarn -> npm으로 바꾸어 실행
+            npm start (같은 오류 발생!!)
+
+            yarn으로 설치를 해보자.
+
+            우분투의 경우 사전 path 등록이 필요함
+            echo 'export PATH="$(yarn global bin):$PATH"' >> ~/.bashrc
+            yarn global add test-react-app
+
+            앱 생성
+            create-react-app yarn-react
+
+
+            생각해보니 외부 서버에 설치했는데 localhost:3000으로 하면 안되는게 당연하네;;;
+
+
+            방화벽 설정
+
+            *** ufw 와 iptables 둘중 하나만 사용해야 함!!!
+            현재 iptables 을 사용하므로 ufw는 비활성화 해주어야 한다.
+            ufw disable
+
+            참조링크 : https://server-engineer.tistory.com/418
+            iptables 초기 설정 참조링크 : https://linuxkill.tistory.com/88
+            iptables 방화벽 정책 참조링크 : https://ndb796.tistory.com/262
+
+
+            1. 열려있는 모든 포트 표시
+            netstat -nap
+
+            2. 확인하려는 포트번호 상태확인
+            netstat -nap | grep 포트번호
+
+            3. 특정 포트 외부접근 허용 (내부에서 외부 허용은 아님!)
+            iptables -I INPUT 1 -p tcp --dport 3000 -j ACCEPT
+
+            iptables -I OUTPUT 1 -p tcp --dport 3000 -j ACCEPT
+
+            * 반대로 내부에서 외부 접근을 허용할 경우 INPUT -> OUTPUT
+
+            4. 변경사항 저장
+            service iptables save
+            /etc/init.d/iptables restart
+
+            iptables -I OUTPUT 1 -p tcp --dport 3000 -j ACCEPT
