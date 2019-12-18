@@ -270,8 +270,130 @@ CSS 트랜지션 & 애니메이션
 
             <video autoplay loop src="assets/cars.mp4"></video>
 
-            
 
 
-** 외부 css 스크립트 적용법
-https://zetawiki.com/wiki/HTML%EC%97%90_CSS%EB%A5%BC_%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94_%EB%B0%A9%EC%8B%9D_3%EA%B0%80%EC%A7%80
+
+27. 반응형 웹 만들기 - 미디어 쿼리
+
+    가장 많이 사용되는 방법
+    접속 장치에 따라 특정 css 스타일을 사용하도록 함
+
+    미디어 쿼리 구문
+    @media 미디어 유형 and 조건 and 조건
+
+    사용 가능한 유형 옵션
+    all(모두), print(인쇄장치?), screen(화면), tv(?) 등...
+
+    ex) screen 유형 최소 너비 200px, 최대 너비 360px 인 경우 적용할 css 구문
+    @media screen and (min-width:200px) and (max-width;360px) {
+        ...
+    }
+
+
+    실제로 여러 화면의 경우에 대해 어떻게 구축하는지 보자.
+
+    <style>
+    body { /* 좀 많이 큰 경우? */
+        background: url(images/bg0.jpg) no-repeat fixed;
+        background-size: cover;
+    }
+
+    /* 데스크탑 */
+    @media screen and (max-width:1024px) {
+        body {
+            background: url(images/bg1.jpg) no-repeat fixed;
+            background-size: cover;
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        body {
+            background: url(images/bg2.jpg) no-repeat fixed;
+            background-size: cover;
+        }
+    }
+
+    @media screen and (max-width:320px) {
+        body {
+            background: url(images/bg3.jpg) no-repeat fixed;
+            background-size: cover;
+        }
+    }
+    </style>
+
+
+    미디어 쿼리 조건
+
+        - 단말기의 가로 너비와 세로 높이
+            단말기의 가로, 세로 값을 설정하는 속성
+            device-width, device-height : 단말기의 가로 너비, 세로 높이
+            min-device-width, min-device-height : 단말기의 최소 너비, 최소 높이
+            max-device-width, max-device-height : 단말기의 쵀대 너비, 최대 높이
+
+            단말기 크기와 뷰포트 크기를 하나로 통일하기 위해 뷰포트 지정 시  width = "device-width"로 놓고 사용한다. (초기 값 다들 저렇게 쓰는 이유)
+
+
+
+        - 화면 회전 (가로 모드로 보는 경우)
+            orientation 속성을 사용하여 화면 방향을 체크한다.
+
+            orientation: portrait(초상화, 세로방향) | landscape(경치, 가로방향)
+
+            ex)
+            <style>
+            /* 가로모드인 경우 백그라운드 오랜지색 */
+            @media screen and (orientation:landscape) {
+                body {background-color:orange;}
+            }
+
+            /* 세로모드인 경우 백그라운드 노란색 */
+            @media screen and (orientation:portrait) {
+                body {background-color:yellow;}
+            }
+            </style>
+
+
+        - 화면 비율
+        - 단말기 화면 비율
+        - 색상당 비트 수
+
+        - 미디어 쿼리 중단점 만들기
+            무엇을 기준으로 css 옵션을 바꿀 수 있을까?
+
+            *중단점 (breakpoint) : 서로 다른 CSS를 적용할 화면 크기
+
+            /* 스마트폰 세로 */
+            @media only screen and (min-width: 320px) { ... }
+
+            /* 스마트폰 가로 */
+            @media only screen and (min-width: 480px) { ... }
+
+            /* 태블릿 세로 */
+            @media only screen and (min-width: 768px) { ... }
+
+            /* 태블릿 가로, 데스크톱 */
+            @media only screen and (min-width: 1024px) { ... }
+
+
+    외부 CSS 파일 연결 : 특정 조건에 맞을 경우, 지정한 CSS 파일을 가져와 적용함
+
+    <link> 태그
+        css 파일 개수가 많은 경우 link 태그가 더 안정적
+
+    @import 구문
+
+    <style> 태그 안에 직접 구현
+
+    ** 외부 css 스크립트 적용법 참조링크
+    https://zetawiki.com/wiki/HTML%EC%97%90_CSS%EB%A5%BC_%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94_%EB%B0%A9%EC%8B%9D_3%EA%B0%80%EC%A7%80
+
+
+
+28. 플렉서블 박스 레이아웃
+    그리드 레이아웃이 바탕이 됨
+
+    기본 개념
+        - 플렉스 컨테이너
+        - 플렉스 항목
+        - 주축
+        - 교차축
