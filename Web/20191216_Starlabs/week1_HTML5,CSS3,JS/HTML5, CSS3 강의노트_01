@@ -1,0 +1,58 @@
+
+25. CSS transform
+    변형(transform)
+
+
+    _01 scale 함수 : 지정한 크기만큼 요소를 확대/축소
+                    transform:scale(sx, sy) -> 2차원
+                    transform:scale3d(sx, sy, sz) -> 3차원 공간의 요소 확대/축소
+                    transform:scaleX(sx) -> x 축 방향으로 확대축소
+                    transform:scaleY(sy) -> y 축 방향으로 확대축소
+                    transform:scaleZ(sz) -> z 축 방향으로 확대축소
+
+                    인자로 소숫점도 받을 수 있다.
+
+
+    _02 rotate 함수
+            transform:rotate(rx, ry, 각도)
+            transform:rotate3d(rx, ry, rz, 각도)
+            transform:rotateX(각도)
+            transform:rotateY(각도)
+            transform:rotateZ(각도)
+
+
+    _03 skew 함 : 지정 각도만큼 오브젝트를 비틀어 왜곡시킨다.
+            transform:skew(aw,ay)
+            transform:skewX(ax)
+            transform:skewY(ay)
+
+            ex)
+            <style>
+                .skewx1 { transform: skewX(30deg); }
+                .skewx2 { transform: skewY(-25deg)}
+            </style>
+
+            <div class="origin">
+                <div class="skewx1"><img src ="image.jpg"></div>
+            </div>
+            <div class="origin">
+                <div class="skewx2"><img src ="image.jpg"></div>
+            </div>
+
+
+    _04 원근감 옵션 perspective
+        perspective: <크기> | none; /* 값이 클 수록 멀리 있는 것처럼 보인다. */
+
+
+26. 트랜지션 : 웹 요소의 스타일 속성이 조금씩 자연스럽게 바뀌는 것
+
+    어떤 것이 있을까?
+        - 예) 도형 위에 마우스를 올려놓으면 도형의 색이 변함
+        - 예) 도형 위에 마우스를 올려놓으면 도형의 모양이 변함
+
+    트랜지션의 속성
+    transition-property 트랜지션 대상 설정
+    transition-duration 트랜지션 진행 시간 설정
+    transition-timing-function 트랜지션 속도 곡선을 설정
+    transition-delay 트랜지션 지연 시간을 설정
+    transition 위의 속성들을 한꺼번에 설정

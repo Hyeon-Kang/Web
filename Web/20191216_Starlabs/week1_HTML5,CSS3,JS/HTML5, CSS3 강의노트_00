@@ -961,7 +961,7 @@ html 특수기호
             </label>
 
 
-        - 구조 가상 클래스
+        - 구조 가상 클래스 (반복되는 객체나 특정 위치 요소에 스타일을 적용하려 할 때 사용)
             :nth-child(n), :nth-last-child(n);
             이것은 어떤 일을 하는가?
 
@@ -994,3 +994,26 @@ html 특수기호
                 <tr><td>시금치</td></tr>
                 <tr><td>사과</td></tr>     /* lightgray */
             </table>
+
+
+
+        인라인 기준 특정 위치에 스타일 적용하는법
+
+            ex)
+            <style>
+            .text1::before {
+                /* 해당 스타일을 적용한 인라인 마지막에 추가 */
+                content: "important!!!";
+                color:red;
+                font-weight:bold'
+            }
+            .text2::after {
+                content:url(http://webguru... 주소);
+                margin-left: 10px
+            }
+            </style>
+
+            <h1>웹과 멀티미디어</h1>
+            <p class = "text1">웹에서 지원되는 비디오/오디오 파일 종류에는....</p>
+            <p class ="text2">HTML5 에서는 플러그인 프로그램 없이 웹 브라우저 자체적으로 멀티미디어 서비스 지원
+            </p>
