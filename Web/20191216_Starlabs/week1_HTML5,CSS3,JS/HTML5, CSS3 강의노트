@@ -536,7 +536,7 @@ html 특수기호
     ex)
     <style>
         h1 {
-            padding-bottom: 5px;
+            padding-bottom: 5px; /* 하단 패딩길이 설정 */
             border-bottom: 3px solid #ccc; /* 아랫 부분 -3px 회색 실선 */
         }
 
@@ -575,8 +575,8 @@ html 특수기호
 
     ex)
     <style>
-        .box1{ box-shadow:2px -2px 5px 0px black;}
-        .box2{ box-shadow:5px 5px 15px 5px gray;}
+        .box1{ box-shadow:2px -2px 5px 0px black; } /* 박스 그림자 설정, 오른쪽 2px 아래로 2px 흐림도는 0, 색생은 black*/
+        .box2{ box-shadow:5px 5px 15px 5px gray; }
     </style>
 
 
@@ -605,4 +605,361 @@ html 특수기호
         - position: static | relative | absolute | fixed
           static : 요소를 문서의 흐름에 맞추어 배치 (좌표값이나 사이즈 일일히 지정해주어야 함)
 
-          relative :
+          static : 문서의 흐름대로 배치 (상하 픽셀이동 불가능)
+          relative : 세부 위치까지 자유롭게 변경 가능
+          absolute : 문서의 흐름과 관계없이 마음대로 가능
+                     단 부모요소가 relative로 지정되어야 함
+
+          fixed : 문서의 흐름과 관계없이 브라우저 창을 기준으로 위치계산. 따라서 스크을 하더라도 위치고정
+
+        - 특정 요소를 숨길 때
+          visibility: visible | hidden | collapse
+
+        - z-index 속성 ??
+          요소를 쌓는 순서 정하기 (ppt 그림 순서를 생각해보자)
+          z-index 값이 더 큰 요소가 위로 간다.
+          z-index 값을 지정해주지 않으면 1부터 생성 순으로 커짐
+
+
+19. 다단 편집 & 표 스타일
+        학습자료 참조 링크 : https://www.youtube.com/watch?v=K4TgMqVZgEE&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=19
+
+        다단 위치 지정
+
+        break-before:column,
+        break-before:avoid-column;
+        break-after:column;
+        break-after:avoid
+        ex)
+        <style>
+        .multi {
+                column-count:4;  /*나눌 컬럼 개수, 정수인 경우 개수만큼 단을 나누고 px로 설정을 하면 해당 px을 기준으로 단을 나눈다.*/
+                column-rule: 2px dotted #000; /* 나눈 컬럼 사이에 선을 그어서 표시 */
+                text-align: justify;
+
+                /* 제목(h2)을 기준으로 나누고 싶다면? */
+                .multi h2 {
+                    break-before: column
+                }
+        }
+        </style>
+
+
+        여러 단을 하나로 합치기
+        column-span: 1(합치지 않음, 기본) | all (모든 단을 하나로 합쳐 표현함.)
+
+
+
+        표 스타일
+            표의 제목은 caption을 사용하여 부여한다.
+
+            caption-side: top(제목을 표 위에) | bottom (제목을 표 아래에)
+
+            border
+                박스모델과 같이 테두리 옵션 양식은 비슷하다.
+                그러나 표의 바깥 테두리와 셀 테두리 모두 지정해야 함
+
+            ex)
+            <style>
+            .table1 { /* 표 테두리 옵션 지정 */
+                border:1px solid black; // /*테두리 옵션 1px 실선 검정 */
+            }
+            .table1 td { /* 셀 테두리 옵션 지정 */
+                border:1px dotted black; /* 테두리 옵션 1px 점선 검정 */
+            }
+            }</style>
+
+
+            border-collapse
+                표 테두리와 셀 테두리를 합칠 것인지 설정
+                (css 표 속성 기본 값은 표 테두리와 셀 테두리가 분리되어있다. 알던 것과 반대)
+
+                border-collapse: collapse(하나로 합쳐 표시) | separate(따로 표시, default)
+
+                ex)
+                <style>
+                .table1 {
+                    border: 1px solid black; /* 테두리 1px 실선 검정 */
+                    border-collapse:collapse; /* 내부 외부 테두리 통합 */
+                }</style>
+
+
+                border-spacing
+                    표 테두리와 셀 테두리 사이의 간격을 조절할 수 있다.
+
+                    border-spacing: <수평&수직 거리>
+                    border-spacing: <수평 거리> <수직 거리>
+
+                    ex)
+                    <style>
+                    .table1 {
+                        border:1px solid black; /* 테두리 1px 실선 black */
+                        border-collapse: separate; /* 테이블, 셀 테두리 분리 */
+                        border-spacing: 20px 10px; /* 테이블, 셀 테두리 사이 간격 수평 20px, 수직 10px */
+                    }</style>
+
+            비어있는 셀 감추기 empty-cells
+                border-collapse: separate; 인 경우 공백 셀을 숨길 수 있다.
+
+                empty-cells: show(기본 값) | hide
+
+                ex)
+                .table { border-collapse: seperate; }
+                td { border:1px sloid black; }
+                #tb1 td { empty-cells:show; }
+                #tb2 td { empty-cells:hide; }
+
+            ** CSS에서 표는 border 값을 정해주지 않으면 기본적으로 테두리가 없다.
+
+
+            표 크기 지정
+                width, height, padding
+
+                ex)
+                <style>
+                table {
+                    border-collapse:collapse;
+                    width:300px; /* 표 너비 300px */
+                }
+                td {
+                    padding:10px; /* 셀 내부 글자와 셀 테두리 padding 10px */
+                }
+                </style>
+
+
+            셀 너비 설정
+                글자가 너무 길면 셀을 자동 확장할 것인지, 강제로 개행을 시킬 것인지 설정
+
+                table-layout: fixed | auto (기본 값)
+
+
+            셀 안의 텍스트 정렬 방법
+
+                - 수평 정렬
+                    text-align : left | right | center
+
+                    ex)
+                    <style>
+                    .table1 td {
+                        text-align:center; /* 텍스트 가운데 정렬 */
+                    }</style>
+
+                - 수직 정렬
+                    vertical-align : top | bottom | middle
+
+                    ex)
+                    <style>
+                        .tb1 { vertical-align : top; } /* 셀 내부 텍스트 위쪽에 정렬 */
+                        .tb2 { vertical-align : bottom; }
+                    </style>
+
+
+
+20. HTML5 semantic tag
+    HTML5부터는 공통적으로 자주 쓰이는 요소를 태그로 만들어놓음
+    <header> : 상단부, 툴바
+    <nav> : 네비게이션 (메뉴)
+    <section> : 주제별 콘텐츠 영역
+    <article> : 세부 콘텐츠 내용
+    <aside> : 사이드바, 본문 이외의 내용 (광고, 링크 모음 )
+    <footer> : 하단부, 제작 정보와 저작권 정보 표시
+
+
+    <iframe> : 외부 문서 삽입 태그 (인라인)
+        내부 옵션으로 width, height, name, src, seamless가 있다.
+        여기서 seamless는 프레임의 테두리를 없애 추가한 외부 요소가 본문의 일부처럼 보이도록 만들어준다.
+
+        ex)
+        <h2>iframe 태그를 사용하여 외부 문서 포함시키기</h2>
+        <div class="content">
+            <iframe src="http://외부주소" width="95%" height="500"></iframe>
+        </div>
+
+
+    이렇게 HTML5와 함께 나온 태그들은 IE8 이하 버전에서는 정상적으로 지원하지 않는다.
+
+    IE8 이하 사용자들의 접근을 대비하여 html5shiv 레포지토리를 내러받고 스크립트를 적용해주어야 한다.
+
+
+21. 멀티미디어 소스
+    <audio> : 배경음악이나 효과음 등 오디오 재생
+        브라우저에서 지원하는 확장자를 고려해야하나
+        mp3는 공통적으로 호환되므로 mp3 파일만 사용
+
+        ex) /* 컨트롤바 표시 */
+        <audio src = "media/bgm.mp3" controls></audio>
+        기타 옵션 : autoplay, loop, muted, preload(재생 전 오디오 파일을 미리 다운받아둠)
+
+    <video> : 오디오와 유사함
+        비디오 코덱은 아직 공식지정이 없다.
+        공통적으로 mp4를 지원함
+
+        ex) /* 자동재생, 컨트롤러 */
+        <video src = "경로" autoplay controls></video>
+
+        브라우저가 특정 확장자를 지원하지 못해서 여러개를 준비하는 경우
+
+        ex)
+        <video controls>
+            <source src="경로/비디오.mp4">
+            <source src="경로/비디오.webm">
+            <source src="경로/비디오.ogv">
+        </video>
+
+        비디오는 재생 전 썸네일 사진 지정이 적용가능함
+        poster 태그 사용
+        ex)
+        <video src = "media/비디오.mp4" controls poster="fireworks.jpg"></video>
+
+
+23. CSS 셀럭터
+
+    연결 선택자
+
+        - 하위 선택자
+            선택자와 선택자를 연결하여 작용 대상을 한정
+            ex) section p {color: blue; } /* section 요소 안의 모든 p 요소의 글자 색을 blue로 지정 */
+            (상위요소 : section, 하위요소 : p)
+
+        - 자식 선택자
+            자식요소에 스타일을 적용
+            부모요소 > 자식요소
+            ex) section > ul { border-collapse:collapse }
+
+
+        - 인접 형제 선택자
+            같은 부모를 가진 형제 요소중 첫 번째 요소에만 스타일 적용
+            ex) h1 + p { text-decoration: underline; }
+            해당 스타일이 적용된 곳에서 첫 번째 <p>만 적용받음
+
+        - 형제 선택자
+            h1 ~ p { text-decoration: underline; }
+            이후에 오는 모든 동등한 레벨의 p에 적용
+
+    속성 선택자
+
+        - [속성] 선택자
+            지정 속성을 가진 요소를 찾아 스타일 적용
+            ex)
+            a[href] {
+                background: yellow;
+            }
+
+            <ul>
+                <li><a>메인메뉴 : </a></li>     /* 스타일 적용 x */
+                <li><a href="#">메뉴1 </a></li> /* 스타일 적용 o */
+            </ul>
+
+        - [속성 ~= 값] 선택자
+            지정 값이 포함된 요소를 찾아 스타일 적용
+            ex)
+            <style>
+                [class ~= "button"] {
+                    border: 2px solid black; /* 테두리 2px 실선 black */
+                    box-shadow: rgba(0,0,0,0,4) 5px 5px; /* 박스 그림자 옵션 */
+                }
+            </style>
+            <body>
+                <ul>
+                    <li><a href ="#">메인메뉴 : </a></li>
+                    <li><a href ="#">메뉴1 : </a></li> /* 스타일 적용 안 됨*/
+                    <li><a href ="#" class="button">메뉴2 : </a></li> /* 스타일 적용됨 */
+                    <li><a href ="#" class="flat button">메뉴3 : </a></li> /* 스타일 적용 됨 */
+                </ul>
+            </body>
+
+        - [속성 |= 값] 선택자
+            특정 값이 포함된 속성을 가진 요소를 찾아 스타일  적용, 다른 문자가 붙어있어도 인식 됨
+
+        - [속성 ^= 값] 선택자
+            특정 값으로 시작하는 속성을 골라 스타일 적용
+
+        - [속성 $= 값] 선택자
+            특정 값으로 끝나는 속성을 가진 요소를 찾아 스타일 적용 (hwp, docs ........)
+
+
+    가상 클래스와 가상요소
+        학습참조링크 : https://www.youtube.com/watch?v=uAuzaBlGyCs&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=24
+
+
+        - 사용자 동작에 반응하는 가상 클래스
+            :link 방문하지 않은 링크에 스타일 적용
+            :visited 방문한 링크에 스타일 적용
+            :hover 마우스를 올려놓았을 때 스타일
+            :active 하이퍼링크를 클릭하는 순간의 스타일
+            :focus 탭 키로 링크 이동 시 현재 선택된 링크 표시
+
+            * 여러개의 가상요소를 동시에 사용할 경우 아래와 같이 반드시 순서를 지켜야 한다.
+            (:limk, :visited, :hover, :active)
+            중간에 절차를 하나 빼먹어도 나머지 순서는 반드시 지켜야 함
+
+            ex)
+            <style>
+                .navi a:link, .navi a:visited {
+                    /* 방문하지 않은 링크와 방문한 링크에 대한  스타일 설정 */
+                    padding: 20pc 5px 5px 35px;
+                    display: block;
+                    color:#fff;
+                    width: 150px;
+                    text-decoration:none;
+                }
+
+                .navi a:hover, .navi a:focus {
+                    /* 마우스를 올리거나 탭으로 지정된 링크에 대한 스타일 설정 */
+                    text-shadow: 0px 2px 2px #000;
+                    color: #FC0;
+                }
+
+                .navi a:active {
+                    /* 링크를 클릭한 순간의 스타일 설정 */
+                    color: red;
+                }
+            </style>
+
+            <nav class="navi">
+                <ul>
+                    <li><a href="#">이용 안내</a></li>
+                    <li><a href="#">객실 소개</a></li>
+                    <li><a href="#">예약 방법 및 요금</a></li>
+                    <li><a href="#">예약하기</a></li>
+                </ul>
+            </nav>
+
+
+        - input 폼에서 적용
+            input폼을 이용한 텍스트 박스를 예시로 들자.
+            회원가입중 입력하거나 변경할 수 없는 텍스트 박스를 회색으로 처리하는 것을 본 적이 있을 것이다. 이것은 어떻게 해야 할까?
+
+            다음과 같은 UI 상태 요소 가상 클래스를 사용하면 쉽게 가능하다.
+
+            :enabled, :disabled 요소가 활성화 / 비활성화에 따른 설정 적용
+            :checked 라디오 박스나 체크 박스 등 다중 선택지에서 항목을 선택했을 때의 스타일 옵션
+
+            ex)
+            <style>
+                input:disabled {
+                    /* input 박스가 비활성화 되어있을 때 옵션*/
+                    background:#ddd; /* 백그라운드 컬러 */
+                    border:1px #ccc solid; /* 테두리 옵션 */
+                }
+
+                input:checked + span {
+                    /* 선택한 항목의 span 인라인 태그 내용을 blue 색으로 바꿈 */
+                    color:blue;
+                }
+            </style>
+
+            <p>이 달에 신청할 과목을 선택하세요.</p>
+            <label>
+                <input type="radio" name="subject" value="speacking"><span>회화</span>
+            </label>
+            <label>
+                <input type="radio" name="subject" value="grammer"><span>문법</span>
+            </label>
+            <label>
+                <input type="radio" name="subject" value="writing"><span>작문</span>
+            </label>
+
+
+
+        
