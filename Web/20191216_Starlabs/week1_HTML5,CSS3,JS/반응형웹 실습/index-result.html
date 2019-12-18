@@ -8,14 +8,14 @@
 	 <!-- 뷰포트 선언, 너비는 기기와 스크린 통합, 초기 확장 스케일 1 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Cafe</title>
-	<style> /* 외부 css 속성 가져오기 */
+	<style>
 
 		/* 모바일 퍼스트 */
 
-		/* 태블릿 */
+		/* 제주고딕 폰트 다운로드 */
 		@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
-		/* PC */
+		/* 서브 글꼴 다운로드 */
 		@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
 
 		/* 가득 찬 화면 제공을 위해 마진과 패딩 0 */
@@ -56,6 +56,8 @@
 			width: 100%;
 			margin: 0 auto;
 		}
+
+		/* 헤더 옵션 */
 		header {
 			width: 100%;
 			height: 300px;
@@ -63,6 +65,7 @@
 			background-size: cover;
 			margin: 0;
 		}
+		/* 메뉴 옵션 */
 		nav {
 			height: 50px;
 			background: #000;
@@ -79,11 +82,15 @@
 			font-size: 0.8em;
 			margin: 5px 15px;
 		}
+
+		/* 모든 section 크기 선언 */
 		section {
 			position: relative;
 			width: 100%;
 			padding: 15px 5% 10px 5%;
 		}
+
+		/* 홀수 section 토픽 별도 색상 지정 */
 		#container section:nth-child(odd) {
 			background: #eee;
 		}
@@ -98,6 +105,8 @@
 			}
     .content {
     	margin: 80px auto 10px;
+
+	  /* 브라우저별 개별 세팅 호환성 추가 */
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
@@ -114,6 +123,8 @@
 		.photo {
 			display: none; /* 모바일에선 사진 표시 안함 */
 		}
+
+		/* 하단 footer 설정 */
 		footer {
 			position: relative;
 			width: 100%;
@@ -129,22 +140,24 @@
 		}
 
     /* 태블릿 - 768px 이상 */
-		@media screen and (min-width:760px) {
+		@media screen and (min-width:768px) {
       header {
-				height: 400px;
+				height: 400px; /* 높이 변경 */
 			}
+
+	 /* 모바일고 달리 일부 영역 사이즈 변경 */
       #intro, #map {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        width: 50%;
-        height: 400px;
-        float: left;
+        box-sizing: border-box; /* 박스 사이징을 지정하지 않으면 width 값에 padding과 border가 들어가지 않음 */
+        width: 50%; /* 좌우 50% */
+        height: 400px; /* 높이 값 지정 */
+        float: left; /* 좌측부터 하나씩 표시 */
         margin: 0;
         border: 1px dotted #ccc;
       }
       #choice {
-				clear: left;
+				clear: left; /* 앞에서 선언한 float 값 초기화 */
 			}
     }
 
@@ -158,6 +171,8 @@
 			header {
 				height: 500px;
 			}
+
+	  /* 모바일과 달리 일부 영역 사이즈 변경 */
       #intro, #map, #choice {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -173,10 +188,12 @@
 				width: 90%;
 				padding: 20px;
 			}
+	  /* 모바일에서 숨겼던 사진을 태블릿에선 표기 */
       .photo {
 				width: 42%;
-				display: block;
+				display: block; /* 블록 레벨 요소 배치 */
 			}
+	  /* photo에 속하는 img 태그에만 적용 (자식 선택자) */
       .photo > img {
 				width: 100%;
 				max-width: 320px;
@@ -201,7 +218,7 @@
 				float: left;
 			}
 			footer {
-				clear: both;
+				clear: both; /* 앞에서 선언한 float 값 초기화 */
 			}
     }
 	</style>
