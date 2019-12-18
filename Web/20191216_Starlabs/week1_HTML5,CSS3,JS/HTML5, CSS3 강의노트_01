@@ -393,7 +393,107 @@ CSS 트랜지션 & 애니메이션
     그리드 레이아웃이 바탕이 됨
 
     기본 개념
-        - 플렉스 컨테이너
-        - 플렉스 항목
-        - 주축
-        - 교차축
+        - 플렉스 컨테이너 : 각 항목들을 컨테이너로 묶어주어야 사용 가능함
+        - 플렉스 항목 : 컨테이너에 들어갈 요소
+        - 주축 : 항목을 배치할 방향
+        - 교차축 : 주축과 직교하는 축
+
+    display 속성 = 플렉스 컨테이너 지정
+        display: flex(박스 레벨요소) | iniline-flex(인라인 레벨요소)
+
+
+        선언 예시
+        ex)
+
+        <style>
+        #container {
+            display:flex; /* 플렉스 컨테이너 지정 */
+        }
+        </style>
+
+        <div id = "container"> /* 플렉스 컨테이너 클래스 상속 */
+            <div></div> /* 플렉스 항목 1 */
+            <div></div> /* 플렉스 항목 2 */
+        </div>
+
+
+    *** 브라우저마다 플렉스 박스를 지원하는 방법이 다르다! 브라우저 접두사 필요! ***
+
+
+    플렉서블 박스 레이아웃 기본 속성
+        flex-direction 플렉스 항목 배치 방향 지정
+
+        flex-direction: row | row-inverse | column | column-inverse
+
+        row : 주축을 가로
+        row-inverse : 주축은 가로인데 역순(오른쪽 -> 왼쪽)
+        column : 주축을 세로
+        column-inverse : ...
+
+        flex-direction 속성은 플렉스 컨테이너 클래스에서 정의하면 된다.
+
+
+        flex-wrap : 요소가 컨테이너 영역을 벗어나면 어떻게 배치해야 하는지 설정
+
+        flex-wrap: no-wrap | wrap | wrap-reverse
+
+        no-wrap : 영역을 벗어나면 한줄로 표 (기본값)
+        wrap : 넘어간 항목을 다음줄에 표시
+        wrap-reverse : wrap과 반대로 윗줄에 표시
+
+        ** 통상적으로 배치 방향과 줄 배치 방식을 한 번에 설정한다.
+
+        flex-direction, flex-wrap을
+
+        flex-flow: <플렉스 방향> <플렉스 줄 배치>
+
+        ex) flex-flow: row no-wrap;
+
+
+
+        order 속성
+            플렉스 항목의 배치 순서 바꾸기
+
+            ex) 1, 2, 3 -> 3, 1, 2
+
+            <style>
+            #container {
+                display:flex;
+            }
+            #box1 { order:2; }
+            #box2 { order:3; }
+            #box3 { order:1; }
+            </style>
+
+            <div id= "container">
+                <div id="box1"><h2>box1</h2></div>
+                <div id="box2"><h2>box2</h2></div>
+                <div id="box3"><h2>box3</h2></div>
+            </div>
+
+
+        플렉스 항목 가로정렬
+            justify-content : flex-start | flex-end | center | space-between | space-around
+
+            flex-start : 주축의 시작부터 배치
+            flex-end : 주축의 끝점부터 배치
+            center : 주축의 중심부터 배치
+            space-between : 시작,중점,끝점 배치
+            space-around : 적당히 간격두고 배치 (이거만 쓸듯)
+
+
+        플렉스 항목 세로정렬
+            align-items, align-self
+
+
+        플렉스 교차죽 기준점 설정
+            aligh-content
+
+
+        플렉스 항목의 크기 조절 (예제 검색해서 할 것!)
+            flex: <flex-grow> | <flex-shrink> | <flex=basis> | auto | initial
+
+            꺾쇠로 묶인 옵션은 바이너리로 표현
+
+            ex) 기본값
+            flex: 0 1 auto;
