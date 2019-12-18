@@ -124,4 +124,154 @@ CSS 트랜지션 & 애니메이션
 
 27. 반응형 웹 디자인 (중요!)
     참조 링크 : https://www.youtube.com/watch?v=a8dP3HIkw_o&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=27
+
     화면 크기에 '반응'하여 화면 요소들을 자동으로 바꾸어 사이트를 구현
+
+
+    뷰포트(viewport) : 실제 내용이 표시되는 영역
+        PC 화면과 모바일 화면의 픽셀 표시방법이 다르기 때문에 의도한대로 나오지 않는다.
+
+        뷰포트를 지정하면 기기 화면에 맞추어 조절됨
+
+        - 뷰포트 지정하기
+            <head> 태그 안에서 <meta> 태그를 이용해 뷰포트 지정
+
+            외부 예시를 보자
+            퍼블리싱 참조링크 : http://www.nextree.co.kr/p8622/
+            코드 참조링크 : https://www.codingfactory.net/10534
+
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            뷰포트 너비를 디바이스 폭으로 맞추고 초기 scale을 1로 설정
+
+    반응형 웹을 만드는 몇가지 방법?
+        - 가변 그리드 레이아웃
+        - 미디어 쿼리
+        - 플렉서블 박스
+
+
+
+    가변 그리드 레이아웃
+        - 그리드 시스템 : 화면을 여러 column으로 나누어 재배치
+          column 개수에 따라 나누기도 함. 주로 960 픽셀 12 column 그리드 시스템을 사용한다.
+
+        - 고정 그리드 레이아웃
+            각 영역의 값을 고정함. 이러면 반응형 웹이 아닌가?
+
+            ex)
+            <style>
+            #wrapper {
+                width:960;
+                margin:0 auto;
+            }
+            header {
+                width: 960px;
+                height:120px;
+            }
+            .content {
+                float:left;
+                width:600px;
+            }
+            .right-side {
+                float:right;
+                width:300px;
+            }
+            footer {
+                clear:both;
+                width:960px;
+            }
+            </style>
+
+        - 가변 그리드 레이아웃
+            고정 그리드의 문제를 해결하기 위해 고정된 픽셀값이 아닌 백분율 값을 넣었다.
+
+            ex)
+            <style>
+            #wrapper {
+                width:96%;
+                margin:0 auto;
+            }
+            header {
+                width: 100%;
+                height:120px;
+            }
+            .content {
+                float:left;
+                width:62.5%;
+                height:400px;
+                padding:1.5625%;
+                background-color:#ffd800;
+            }
+            .right-side {
+                float:right;
+                width:31.25%;
+                height:400px;
+                padding:1.5625%;
+                background-color:#00ff90;
+            }
+            footer {
+                clear:both;
+                width:100%;
+                height:120px;
+                background-color:#c3590a;
+            }
+            </style>
+
+
+            ** 각 요소의 너비 백분율 구하는 팁
+            (요소의 너비 / 콘텐츠 전체를 감싸는 요소의 너비) * 100
+
+            위에서 보았던 고정형 그리드 레이아웃의 콘텐츠 비율을 구해보자
+            ( 600px / 960px ) * 100
+
+
+    가변 요소 다루기
+
+        - 가변 글꼴
+            em 단위
+            rem 단위
+
+        - 가변 이미지
+            CSS 활용
+            ex) 이미지를 감싼 부모요소만큼 커지거나 작아지도록 max-width 속성 값을 100%로 지정
+            <style>
+                .content img {
+                    max-width:100%;
+                    height:auto;
+                }
+            </style>
+
+            ** 모바일에서 축소된 이미지가 보인다고 용량도 경감되지 않는다. 과도한 데이터 사용 문제
+
+            이런 문제를 해결하기 위해 <video> 태그처럼 여러 타입의 자료를 상황에 따라 가져올 수 있도록 옵션이 있다.
+
+            1) <img> 태그 srcset
+
+                srcset의 경우 화면 너비 값이나 픽셀 밀도에 따라 고해상도 이미지 지정 가능
+
+                ex) <img src="aaa.jpg" srcset="aaa_hd.jpg 2x">
+
+
+            2) <picture> & <source> 태그
+
+                ex)
+                <picture>
+                    <source srcset="large_img.jpg" media="(min-width:1024px)">
+                    <source srcset="medium_img.jpg" media="(min-width:768px)">
+                    <source srcset="small_img.jpg" media="(min-width:320px)">
+                    <img src = "img.jpg" alt="" style="width:100%";>
+                </picture>
+
+
+        - 가변 비디오
+            ex)
+            <style>
+                video { max-width: 100%; }
+            </style>
+
+            <video autoplay loop src="assets/cars.mp4"></video>
+
+            
+
+
+** 외부 css 스크립트 적용법
+https://zetawiki.com/wiki/HTML%EC%97%90_CSS%EB%A5%BC_%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94_%EB%B0%A9%EC%8B%9D_3%EA%B0%80%EC%A7%80
