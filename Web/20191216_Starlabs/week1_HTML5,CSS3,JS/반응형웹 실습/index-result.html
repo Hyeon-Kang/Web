@@ -15,12 +15,12 @@
 		/* 제주고딕 폰트 다운로드 */
 		@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
-		/* 서브 글꼴 다운로드 */
+		/* Oleo Script 폰트 다운로드 */
 		@import url(https://fonts.googleapis.com/css?family=Oleo+Script);
 
 		/* 가득 찬 화면 제공을 위해 마진과 패딩 0 */
 	  	* {
-	    	margin:0;
+	      margin:0;
 	      padding:0;
     	}
 		body {
@@ -65,6 +65,7 @@
 			background-size: cover;
 			margin: 0;
 		}
+
 		/* 메뉴 옵션 */
 		nav {
 			height: 50px;
@@ -131,6 +132,7 @@
 			height: 100px;
 			background: #000;
 		}
+		/* fooster의 p단락 태그 옵션 설정 */
 		footer p {
 			font-family: 'Oleo Script', cursive;
 			font-size: 1.5em;
@@ -140,13 +142,14 @@
 		}
 
     /* 태블릿 - 768px 이상 */
-		@media screen and (min-width:768px) {
+	@media screen and (min-width:768px) {
       header {
 				height: 400px; /* 높이 변경 */
 			}
 
 	 /* 모바일고 달리 일부 영역 사이즈 변경 */
       #intro, #map {
+      	/* 파이어 폭스, 사파리, 크롬에 대한 CSS 호환성 추가 */
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box; /* 박스 사이징을 지정하지 않으면 width 값에 padding과 border가 들어가지 않음 */
@@ -162,7 +165,7 @@
     }
 
     /* PC - 992px 이상 */
-		@media screen and (min-width:992px) {
+	@media screen and (min-width:992px) {
       #container {
 				width: 995px;
 				margin: 0 auto;
@@ -187,7 +190,7 @@
 				margin: 80px auto 10px;
 				width: 90%;
 				padding: 20px;
-			}
+			   }
 	  /* 모바일에서 숨겼던 사진을 태블릿에선 표기 */
       .photo {
 				width: 42%;
@@ -203,6 +206,8 @@
       .text {
 				width: 42%;
 			}
+
+	  /* intro, map 의 하위 photo 클래스 옵션 변경 */
       #intro .photo, #map .photo {
 				float: left;
 				margin-right: 5%;
