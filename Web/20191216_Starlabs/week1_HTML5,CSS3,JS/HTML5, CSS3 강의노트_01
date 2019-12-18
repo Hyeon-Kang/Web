@@ -497,3 +497,31 @@ CSS 트랜지션 & 애니메이션
 
             ex) 기본값
             flex: 0 1 auto;
+
+
+30. 미디어 쿼리로 사이트 제작하기 실습
+
+    1) 미디어 쿼리 중단점 설정 (편의를 위해 셋만 설정)
+        모바일 767px 이하
+        태블릿 768ox ~ 991px   @media screen and (min-width:768px)
+        PC     992px 이상      @media screen and (min-width:991px)
+
+        /* 모바일 퍼스트로 제작하기 때문에 모바일은 별도의 옵션을 주지 않음 */
+
+        <style>
+            /* 모든 상황에서 똑같이 사용할 스타일 */
+                ... ... (글꼴, 배경색, 링크 밑줄 제거 등)
+
+            /* 모바일 - 767px 이하 */
+                ... ...
+
+            /* 768px 이상 - 태블릿 */
+            @media screen and (min-width:768px)
+
+            /* 992px 이상 - PC */
+            @media screen and (min-width:991px)
+
+        </style>
+
+    2) semantic tag를 이용하여 영역을 나누어야 함
+        <header>, <content>, <side-bar>, <footer>
