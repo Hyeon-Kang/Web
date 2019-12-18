@@ -1,7 +1,9 @@
 
 25. CSS transform
-    변형(transform)
+    영상이 좀 부실한편. 디테일한 정보는 따로 찾아볼 것
+    참고 학습링크 : https://www.youtube.com/watch?v=7FsVqPutd4A&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=26
 
+    변형(transform)
 
     _01 scale 함수 : 지정한 크기만큼 요소를 확대/축소
                     transform:scale(sx, sy) -> 2차원
@@ -44,7 +46,7 @@
         perspective: <크기> | none; /* 값이 클 수록 멀리 있는 것처럼 보인다. */
 
 
-26. 트랜지션 : 웹 요소의 스타일 속성이 조금씩 자연스럽게 바뀌는 것
+26. CSS 트랜지션 : 웹 요소의 스타일 속성이 조금씩 자연스럽게 바뀌는 것
 
     어떤 것이 있을까?
         - 예) 도형 위에 마우스를 올려놓으면 도형의 색이 변함
@@ -106,4 +108,20 @@
         ease-in : 느리게 시작
         ease-out : 느리게 끝냄
         ease-in-out : 느리게 시작하고 느리게 끝냄
-        cubic-bezier(n, n, n, n) :
+        cubic-bezier(n, n, n, n) : 베지에 함수, n의 값은 0~1
+
+
+    transition-delay
+        트랜지션 시작 전 지연시간 설정
+
+        transition-del : 1s;
+
+
+CSS 트랜지션 & 애니메이션
+    @keyframes
+
+
+
+27. 반응형 웹 디자인 (중요!)
+    참조 링크 : https://www.youtube.com/watch?v=a8dP3HIkw_o&list=PLG7te9eYUi7uvROuVChYgAL5pMK7gnWSp&index=27
+    화면 크기에 '반응'하여 화면 요소들을 자동으로 바꾸어 사이트를 구현
