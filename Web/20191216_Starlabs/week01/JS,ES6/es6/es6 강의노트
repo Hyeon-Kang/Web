@@ -373,6 +373,7 @@ Destructuring
 
     weakset
     //참조를 가지고 있는 객체만 저장 가능 (유효한 객체)
+    //참조를 잃어버린 구성요소는 garbage컬렉션이 수거해가서 제거됨
 
     let arr = [1,2,3,4];
     let ws = new WeakSet();
@@ -388,6 +389,29 @@ Destructuring
     console.log(ws);
 
 
+
+
+    WeakMap 예시
+
+    let wm = new Weekmap();
+    let myfun = function(){};
+    // 이 함수가 얼마나 실행되었는지
+
+    wm.set(myfun, 0);
+
+    console.log(wm);
+
+    for(set i=0; i<10; i++) {
+        count = wm.get(myfun); // get value
+        count++;
+        wm.set(fun, count); // 새로추가
+    }
+
+    console.log(wm);
+    console.log(wm.get(myfun));
+
+    myfun = null;
+    console.log(wm.has(myfun)); // 가지고 있는가 확인
 
 
 
