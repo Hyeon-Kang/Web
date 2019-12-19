@@ -351,11 +351,41 @@ Destructuring
     console.log(myName, myAge);
 
 
+    Set 자료구조
 
+    let mySet - new Set();
+    //console.log(toString.call(myset));
 
+    // set : 중복 없는 유니크한 값 저장시 이미 존재하는가 검사할때 유용
 
+    mySet.add("crong");
+    mySet.add("hary");
+    mySet.add("crong");
 
+    mySet.forEach(function(v) {
+        console.log(v);
+    })
 
+    Set에 요소 검사
+    mySetforEach(function(v) {
+
+    })
+
+    weakset
+    //참조를 가지고 있는 객체만 저장 가능 (유효한 객체)
+
+    let arr = [1,2,3,4];
+    let ws = new WeakSet();
+
+    ws.add(arr);
+    ws.add(arr);
+    //console.log(ws);
+
+    ws.add(111);
+    ws.add("111");
+    ws.add(function() {} );
+
+    console.log(ws);
 
 
 
@@ -376,6 +406,8 @@ Destructuring
     document.getElementById(클래스 id) : 클래스 id를 지닌 요소의 값을 가져옴
     innerHTML : getElementById로 가져온 값을 변경할 때 사용
 
+    문법정리 : https://www.theteams.kr/teams/2440/post/67294
+
     ex)
     var count = document.getElementById('count');
     count.innerHTML = increase();
@@ -385,3 +417,6 @@ Destructuring
     let
     const
     startWich(string)
+
+    map, reduce, filter
+    참조 링크 : https://velog.io/@decody/map-%EC%A0%95%EB%A6%AC
