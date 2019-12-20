@@ -48,6 +48,7 @@
         height: 800px;
     }
     .sidenav {
+        visibilit: none;
         margin-top: 8%;
         border-right: 1px solid gray;
         /*background-color: goldenrod;*/
@@ -57,37 +58,31 @@
     section {
         width: 60%;
     }
-    /*
-    aside {
-        background-color: goldenrod;
-        width: 100px;
-    }*/
-    footer {
-        width: 100%;
-        height: 50px;
-        background-color: blue;
-        position: relatiev;
-        clear: both;
-    }
+
+
+
     article {
         width: 70%;
         margin: 20px;
         /*background-color: #999;*/
     }
+
+
 </style>
 
 </head>
 
 <script>
+
     /* 메뉴바 활성화*/
     function openNav() {
-        alert("open");
-        document.getElementById('mysidenav').style.width = '0px';
+        /*document.getElementById('mysidenav').style.width = '0px';*/
+        document.getElementById('mysidenav').style.display = "block";	 // '상세 설명 보기' 단추를 화면에 표시
     }
     /*메뉴바 비활성화*/
     function closeNav() {
-        alert("close");
-        document.getElementById('mysidenav').style.width = '100px';
+        document.getElementById('mysidenav').style.display = "none";   // '상세 설명 보기' 단추를 화면에서 감춤
+
     }
 </script>
 <body>
@@ -100,9 +95,8 @@
 
             <p>스타랩스</p>
             <ul>
-                <li>
-
-                </li>
+                <!-- 닫기 버튼 -->
+                <li><span><input type="button" name="menu_close_btn" value="메뉴닫기" onclick="closeNav()"></span></li>
                 <li><a href="">회원 관리</a></li>
                 <li><a href="">출퇴근유형 관리</a></li>
                 <li><a href="">근무지 관리</a></li>
@@ -118,7 +112,7 @@
 
         <!--헤더시작-->
         <header>
-            <span><input type="button" name="m_btn" value="menu" onclick="openNav()"></span><span> 관리자</span>
+            <span><input type="button" name="menu_open_btn" value="메뉴열기" onclick="openNav()"></span><span> 관리자</span>
         </header>
 
 
@@ -126,16 +120,17 @@
         <section>
             <p>회원 관리</p>
             <article>
-                <p>article</p>
+                <p><h3 style="text-align: center;">회원관리</h3></p>
+            </article>
+            <article>
+                <tb>
+                    <td>
+
+                    </td>
+                </tb>
             </article>
         </section>
-        <!--사이드바
-        <aside>
-            <p>aside</p>
-        </aside>-->
 
-        <!--풋터-->
-        <footer>footer</footer>
     </div>
 </body>
 </html>
