@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>근태관리</title>
+<style>
+
+    * {
+        margin:0;
+
+    }
+    /* 메뉴 리스트 불릿 제거 */
+    ul {
+        list-style:none;
+    }
+
+    /* 방문링크 마킹 해제 */
+    a:link, a:visited {
+        color: blue; /* 미방문, 방문 모두 하이퍼 링크 색상 파랑색으로 고정 */
+        text-decoration:none;
+    }
+
+    body {
+        text-align: center;
+        /*color: #FFF;*/
+        width: 900px;
+    }
+    div#wapper {
+        width: 100%;
+        text-align: left;
+        min-height: 300px;
+        margin: 0 auto;
+    }
+    header, footer, nav, aside, section {
+
+        margin: 0px;
+        padding: 10px;
+    }
+    header {
+        color:white;
+        width: 100%;
+        height: 50px;
+        background-color: black;
+    }
+    nav, section, aside {
+
+        float: left;
+        height: 800px;
+    }
+    nav {
+        border: 1px solid gray;
+        background-color: goldenrod;
+        width: 15%;
+    }
+    section {
+        width: 77%;
+    }
+    /*
+    aside {
+        background-color: goldenrod;
+        width: 100px;
+    }*/
+    footer {
+        width: 100%;
+        height: 50px;
+        background-color: blue;
+        position: relatiev;
+        clear: both;
+    }
+    article {
+        width: 90%;
+        margin: 20px;
+        /*background-color: #999;*/
+    }
+</style>
+
+</head>
+<body>
+    <div id="wapper">
+        <!--헤더시작-->
+        <header>
+            <span>menu</span><span> 관리자</span>
+        </header>
+        <!--네비게이션-->
+        <nav>
+            <p>스타랩스</p>
+            <ul>
+                <li><a href="">회원 관리</a></li>
+                <li><a href="">출퇴근유형 관리</a></li>
+                <li><a href="">근무지 관리</a></li>
+                <li><a href="">근태기록 관리</a></li>
+                <li><a href="">연차 관리</a></li>
+            </ul>
+
+        </nav>
+        <!--콘텐츠부분-->
+        <section>
+            <p>회원 관리</p>
+            <article>
+                <p>article</p>
+            </article>
+        </section>
+        <!--사이드바
+        <aside>
+            <p>aside</p>
+        </aside>-->
+
+        <!--풋터-->
+        <footer>footer</footer>
+    </div>
+</body>
+</html>
