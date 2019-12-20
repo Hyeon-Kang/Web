@@ -560,24 +560,36 @@ data.forEach((v) => {
 let template = fn`<div>welcome ${data[0].name} !!<div>
     <h2>주문가능항목</h2><div>${data[0].items}</div>`;
     document.querySelector("#message").innerHTML += template;
-
-//console.log(template);
-
 });
-
 </script>
-
 </html>
 
 
 
+화살표 함수 arrow function
+
+setTimeout(function() {
+    console.log("settimeout");
+}, 1000);
+
+// 화살표 함수를 통해 funcion을 축약
+setTimeout( ()=> {
+    console.log("settimeout");
+}, 1000);
 
 
+let newArr = [1,2,3,4,5].map(function(value, index, object) {
+    return value * 2;
+});
 
+console.log(newArr)
 
+// 축약표현
+let newArr = [1,2,3,4,5].map( (v) => {
+    return v * 2;
+});
 
-
-
+console.log("arrow newArr", newArr);
 
 
 
