@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>근태관리</title>
-<style>
+    <style>
 
     /* 전체 마진 제거 */
     * {
@@ -73,16 +73,44 @@
 
 <script>
 
-    /* 메뉴바 활성화*/
-    function openNav() {
-        /*document.getElementById('mysidenav').style.width = '0px';*/
-        document.getElementById('mysidenav').style.display = "block";	 // '상세 설명 보기' 단추를 화면에 표시
-    }
-    /*메뉴바 비활성화*/
-    function closeNav() {
-        document.getElementById('mysidenav').style.display = "none";   // '상세 설명 보기' 단추를 화면에서 감춤
+/* 메뉴바 활성화*/
+function openNav() {
+    /*document.getElementById('mysidenav').style.width = '0px';*/
+    document.getElementById('mysidenav').style.display = "block";	 // '상세 설명 보기' 단추를 화면에 표시
+}
+/*메뉴바 비활성화*/
+function closeNav() {
+    document.getElementById('mysidenav').style.display = "none";   // '상세 설명 보기' 단추를 화면에서 감춤
+}
 
-    }
+
+function newRegister() {
+	var newP = document.createElement("p");  // 새 p 요소 만들기
+	var userName = document.querySelector("#userName");
+	var newText = document.createTextNode(userName.value);  // 새 텍스트 노드 만들기
+	newP.appendChild(newText);  // 텍스트 노드를 p 요소의 자식 요소로 연결하기
+
+  var delBttn = document.createElement("span"); 	// 새 button 요소 만들기
+  var delText = document.createTextNode("");  // 새 텍스트 노드 만들기
+  delBttn.setAttribute("class", "del");  // 버튼에 class 속성 설정하기
+  delBttn.appendChild(delText);  // 텍스트 노드를 button 요소의 자식 요소로 연결하기
+  newP.appendChild(delBttn);  //	del 버튼을 p 요소의 자식 요소로
+
+  var nameList = document.querySelector("#nameList");
+  nameList.insertBefore(newP, nameList.childNodes[0]);  // p 요소를 #nameList 맨 앞에 추가하기
+	// nameList.appendChild(newP); // p 요소를 #nameList의 자식 요소로 만들기
+  userName.value = "";  // 텍스트 필드 지우기
+
+  var removeBttns = document.querySelectorAll(".del");
+
+  for (var i=0; i<removeBttns.length; i++) {  // removeBttns에 있는 요소 전체를 반복
+    removeBttns[i].addEventListener("click", function() {  // i번째 버튼을 클릭했을 때 실행할 함수 선언
+      if (this.parentNode.parentNode)  // 현재 노드(this)의 부모 노드의 부모 노드가 있을 경우 실행
+        this.parentNode.parentNode.removeChild(this.parentNode);  // ‘현재 노드(this)의 부모 노드의 부모 노드’를 찾아 ‘현재 노드(this)의 부모 노드(p 노드)’ 삭제
+    });
+  }
+}
+
 </script>
 <body>
     <div id="wapper">
@@ -92,29 +120,30 @@
             <div id ="mysidenav" class="sidenav">
 
 
-            <p>스타랩스</p>
-            <ul>
-                <!-- 닫기 버튼 -->
-                <li><span><input type="button" name="menu_close_btn" value="메뉴닫기" onclick="closeNav()"></span></li>
-                <li><a href="">회원 관리</a></li>
-                <li><a href="">출퇴근유형 관리</a></li>
-                <li><a href="">근무지 관리</a></li>
-                <li><a href="">근태기록 관리</a></li>
-                <li><a href="">연차 관리</a></li>
-            </ul>
-            <ul>
-                &nbsp;
-                <li><a href="">로그아웃</a></li>
-            </ul>
+                <p>스타랩스</p>
+                <ul>
+                    <!-- 메뉴 닫기 버튼 -->
+                    <li><span><input type="button" name="menu_close_btn" value="메뉴닫기" onclick="closeNav()"></span></li>
+                    <li><a href="">회원 관리</a></li>
+                    <li><a href="">출퇴근유형 관리</a></li>
+                    <li><a href="">근무지 관리</a></li>
+                    <li><a href="">근태기록 관리</a></li>
+                    <li><a href="">연차 관리</a></li>
+                </ul>
+                <ul>
+                    &nbsp;
+                    <li><a href="">로그아웃</a></li>
+                </ul>
             </div>
         </nav>
 
         <!--헤더시작-->
         <header>
+            <!-- 메뉴 열기 버튼 -->
             <span><input type="button" name="menu_open_btn" value="메뉴열기" onclick="openNav()"></span><span> 관리자</span>
         </header>
 
-  
+
         <!--콘텐츠부분-->
         <section>
             <p>회원 관리</p>
@@ -122,70 +151,19 @@
                 <p><h3 style="text-align: center;">회원관리</h3></p>
             </article>
 
-            <!-- 회원관리 테이블 예제 1
-            <div>
-                <script>
-                //행개수
-                var count = 1;
-                //최대 행개수
-                var full_count = 5;
-                  //행추가
-                  function add_tr() {
-                 //최대 행개수보다 크면 리턴
-                 if(count>full_count){
-                  alert("최대5개까지만 가능합니다.");
-                  return;
-                 }
-
-                 //추가할 HTML
-                 var add_cell1 = count+"번 항목";
-                 var add_cell2 = "<input type=text name=text"+count+" id=text"+count+" size=40>";
-
-                 //행추가할 테이블 가져오기
-                 var table_name = document.getElementById("text_table");
-
-                 //tr만들기
-                 var new_row = table_name.insertRow();
-
-                 //td만들기
-                 var new_cell1 = new_row.insertCell();
-                 var new_cell2 = new_row.insertCell();
-
-                 //td안에 넣을 HTML
-                 new_cell1.innerHTML = add_cell1;
-                 new_cell2.innerHTML = add_cell2;
-                 //행추가할때마다 행개수 +1
-                 count++;
-                  }
-
-                  //행삭제
-                  function delete_tr() {
-                 //행삭제할 테이블 가져오기
-                    var table = document.getElementById('text_table');
-
-                 //행이 하나밖에 없으면 삭제하지 않기
-                    if (table.rows.length < 2){
-                     alert("더이상 삭제할수 없습니다.");
-                     return;
-                    }
-
-                 //tr삭제하기
-                    table.deleteRow(table.rows.length - 1);
-                 //삭제할때마다 행개수 -1
-                 count--;
-                  }
-                </script>
-                <button onclick="add_tr()">회원 추가</button>
-                <button onclick="delete_tr()">회원 삭제</button>
-                <table cellpadding=0 cellspacing=0 id="text_table" border="1">
-                </table>
-            </div> <!-- 테이블 끝 -->
+            <!-- 회원 관리 테이블 -->
+            <div id="container">
+                
+                <form action="">
+                    <input type="text" id="userName" placeholder="이름" required autocomplete="off">
+                    <button onclick="newRegister();return false;">추가</button>
+                </form>
+                <hr>
+                <div id="nameList"></div>
+            </div>
+            <!-- 회원 관리 테이블 끝-->
 
         </section>
-
     </div>
-
-
 </body>
-
 </html>
