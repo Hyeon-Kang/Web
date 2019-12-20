@@ -1,19 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <title>근태관리</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-
-    /*
-    body {
-        margin:0;
-        padding:0;
-        height:100%;
-    }*/
 
     ul{
         list-style:none;
@@ -27,30 +18,29 @@
     }
 
     #wrapper {
-
-
-        min-height:100%;
+        /*min-height:100%;*/
     }
     /* 사이드바 */
     #sidenav {
-        border:1px solid green;
         float: left;
         background-color: #f1f1f1;
-
-        width: 200px;
+        width:25%;
         height: 100%;
         margin-left: 0px;
         margin-top:50px
+        border:1px solid green;
     }
 
     /*본문*/
     #container {
+        width:74%;
         margin-left: 200px;
         border:1px solid green;
         left:100px;
         padding:20px;
     }
 
+    /* 하단 */
     #footer {
         border:1px solid green;
         position:absolute;
@@ -61,21 +51,36 @@
         margin: 0;
     }
 
+    .m_box {
+        border:1px solid green;
+    }
+
     </style>
 </head>
 <body>
+    <!-- header -->
+    <div id = "header">
+        <span a href>menu</span>
+        <span>관리자</span>
+    </div>
 
-    <div id="header">header</div>
 
     <div id="wrapper">
         <!-- 사이드바 -->
         <nav class="sidenav">
-            <h4>menu</h4>
-            <ul class="nav nav-pills nav-stacked">
+            <ul>
                 <li class="active"><a href="#section1">Home</a></li>
-                <li><a href="#section2">Friends</a></li>
-                <li><a href="#section3">Family</a></li>
-                <li><a href="#section3">Photos</a></li>
+                <div class="m_box">
+                    <li><a href="#">회원 관리</a></li>
+                    <li><a href="#">출퇴근유형 관리</a></li>
+                    <li><a href="#">근무지 관리</a></li>
+                    <li><a href="#">근태기록 관리</a></li>
+                </div>
+                <div class="m_box">
+                    <li><a href="#">연차 관리</a></li>
+                </div>
+
+
             </ul>
         </nav>
         <!-- 사이드바 끝 -->
