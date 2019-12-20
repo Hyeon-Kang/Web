@@ -8,7 +8,6 @@
 
     * {
         margin:0;
-
     }
     /* 메뉴 리스트 불릿 제거 */
     ul {
@@ -32,7 +31,7 @@
         min-height: 300px;
         margin: 0 auto;
     }
-    header, footer, nav, aside, section {
+    header, footer, .sidenav, aside, section {
 
         margin: 0px;
         padding: 10px;
@@ -43,20 +42,20 @@
         height: 50px;
         background-color: black;
     }
-    nav, section, aside {
+    .sidenav, section, aside {
 
         float: left;
         height: 800px;
     }
-    nav {
+    .sidenav {
         margin-top: 8%;
         border-right: 1px solid gray;
         /*background-color: goldenrod;*/
-        width: 15%;
+        width: 200px;
         height: 800px;
     }
     section {
-        width: 77%;
+        width: 60%;
     }
     /*
     aside {
@@ -71,20 +70,39 @@
         clear: both;
     }
     article {
-        width: 90%;
+        width: 70%;
         margin: 20px;
         /*background-color: #999;*/
     }
 </style>
 
 </head>
+
+<script>
+    /* 메뉴바 활성화*/
+    function openNav() {
+        alert("open");
+        document.getElementById('mysidenav').style.width = '0px';
+    }
+    /*메뉴바 비활성화*/
+    function closeNav() {
+        alert("close");
+        document.getElementById('mysidenav').style.width = '100px';
+    }
+</script>
 <body>
     <div id="wapper">
 
         <!--네비게이션-->
         <nav>
+            <div id ="mysidenav" class="sidenav">
+
+
             <p>스타랩스</p>
             <ul>
+                <li>
+
+                </li>
                 <li><a href="">회원 관리</a></li>
                 <li><a href="">출퇴근유형 관리</a></li>
                 <li><a href="">근무지 관리</a></li>
@@ -95,11 +113,12 @@
                 &nbsp;
                 <li><a href="">로그아웃</a></li>
             </ul>
+            </div>
         </nav>
 
         <!--헤더시작-->
         <header>
-            <span>menu</span><span> 관리자</span>
+            <span><input type="button" name="m_btn" value="menu" onclick="openNav()"></span><span> 관리자</span>
         </header>
 
 
