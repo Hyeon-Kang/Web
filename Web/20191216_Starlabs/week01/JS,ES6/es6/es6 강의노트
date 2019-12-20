@@ -488,20 +488,86 @@ Map & WeakMap
     (캡슐화 파트 참고)
 
 
-    
+
+템플릿?
+
+최근에는 json 타입으로 응답을 받고, 이것을 js object로 변환한 뒤에 데이터 처리 후 dom에 반영한다.
+데이터 + HTML문자열의 결합이 필요하기 때문에 템플릿을 사용함.
+
+다음 예시를 보자.
+
+const data = [
+    {
+        name : 'coffee-bean',
+        order : true,
+        items : ['americano', 'milk', 'green-tea']
+    },
+    {
+        name : 'starbucks',
+        order : false,
+    }
+]
+
+const template = `<div>welcome ${data[0].name} !!`
+
+console.log(template);
+
+
+(`) 백틱문자로 영역을 지정하며 내부에 따옴표를 모두 혼용해도 된다.
+무엇보다 html 코드와 문자열, 데이터를 한 번에 다룰 수 있다는 것이 엄청난 강점
 
 
 
 
+템플릿 조작하기
 
 
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>template_literal_example</title>
+</head>
+<body>
+    <div id = "message"></div>
+</body>
 
+<script>
+const data = [
+    {
+        name : 'coffee-bean',
+        order : true,
+        items : ['americano', 'milk', 'green-tea']
+    },
+    {
+        name : 'starbucks',
+        order : false,
+    }
+]
+// Tagged template literals
+// 함수를 사용하여 tag, name, items(array) 세 항목으로 한 번에 다루자
+function fn(tags, name, items) {
+    console.log(tags);
+    if(typeof items === "undefined") {   // items 항목에서 undefined가 뜨는 경우 처리
+        items = "주문가능한 상품이 없습니다.";
+    }
+    return (tags[0] + name + tags[1] + items + tags[2])
+}
 
+data.forEach((v) => {
 
+let template = fn`<div>welcome ${data[0].name} !!<div>
+    <h2>주문가능항목</h2><div>${data[0].items}</div>`;
+    document.querySelector("#message").innerHTML += template;
 
+//console.log(template);
 
+});
 
+</script>
 
+</html>
 
 
 

@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>template_literal_example</title>
+</head>
+<body>
+    <div id = "message"></div>
+</body>
+
+<script>
+
+// 받은 json 데이터라 가정
+const data = [
+    {
+        name : 'coffee-bean',
+        order : true,
+        items : ['americano', 'milk', 'green-tea']
+    },
+    {
+        name : 'starbucks',
+        order : false,
+    },
+    {
+        name : 'coffee-king',
+        order : true,
+        items : ['americano', 'latte']
+    },
+]
+// Tagged template literals
+// 함수를 사용하여 tag, name, items(array) 세 항목으로 한 번에 다루자
+function fn(tags, name, items) {
+    console.log(tags);
+    if(typeof items === "undefined") {   // items 항목에서 undefined가 뜨는 경우 처리
+        items = "<span style='color:red'>주문가능한 상품이 없습니다.</span>";
+    }
+    return (tags[0] + name + tags[1] + items + tags[2])
+}
+
+// data 객체 전체 순환
+data.forEach((v) => {
+
+    let template = fn`<div><h1>welcome ${v.name} !!</h1><div>
+        <h2>주문가능항목</h2><div><h4>${v.items}</h4></div>`;
+        document.querySelector("#message").innerHTML += template;
+
+//console.log(template);
+
+});
+
+</script>
+
+</html>
