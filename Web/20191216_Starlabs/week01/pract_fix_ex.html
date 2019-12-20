@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>근태관리</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
+    body {
+        margin:0;
+        padding:0;
+        height:100%;
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    /* 상단바 headers */
+    #header {
+        border:1px solid green;
+        height:100%;
+        background:#ccc;
+    }
+
+    #wrapper {
+        position:relative;
+        min-height:100%;
+    }
+    /* 사이드바 */
+    #sidenav {
+        border:1px solid green;
+        float:left;
+        background-color: #f1f1f1;
+        position: static;
+        width: 200px;
+        height: 100%;
+        margin-left: 0px;
+        margin-top:50px
+    }
+
+    /*본문*/
+    #container {
+        border:1px solid green;
+        float:left;
+        position: static;
+        padding:20px;
+    }
+
+    #footer {
+        border:1px solid green;
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:70px;
+        background:#ccc;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div id="header">header</div>
+
+    <div id="wrapper">
+        <!-- 사이드바 -->
+        <nav class="sidenav">
+            <h4>menu</h4>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#section1">Home</a></li>
+                <li><a href="#section2">Friends</a></li>
+                <li><a href="#section3">Family</a></li>
+                <li><a href="#section3">Photos</a></li>
+            </ul>
+        </nav>
+        <!-- 사이드바 끝 -->
+
+        <!-- 본문 -->
+        <div id="container">나는 container입니다.
+
+        <!-- 본문 끝 -->
+
+        </div> <!-- Wrapper end -->
+
+        <!-- footer -->
+        <div id="footer">footer</div>
+        <!-- footer 끝 -->
+
+    </body>
+    </html>
