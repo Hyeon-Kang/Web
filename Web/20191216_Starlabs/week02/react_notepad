@@ -25,3 +25,8 @@ yts.api (영화 데이터 api) 사용
 
 facebook에서 제공하는 create-react-app 을 사용한다.
 (안에 웹팩이 내장되어있다. 이를 통해 설정 없이 바로 인스톨, 시작 가능)
+
+리액트는 4개의 스크립트가 있다.
+start, build, test, eject
+
+일단 start만 다룸

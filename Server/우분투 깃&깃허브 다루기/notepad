@@ -1,0 +1,53 @@
+참고 링크 : https://yokang90.tistory.com/47
+생활코딩_원격저장소, 지역저장소 동기화 : https://opentutorials.org/course/2708/15428
+
+
+sudo apt install git-core
+
+이름 등록
+git config --global user.name "Hyeon-Kang"
+
+계정 등록
+git config --global user.email "rkd099@naver.com"
+
+로컬 저장소와 깃허브 저장소 연결하기
+git remote add origin https://github.com/Hyeon-Kang/Web.git
+
+깃 원격 저장소 경로 확인
+git remote -v
+
+
+에러 참고 링크 : http://www.talkdev.net/git-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%82%AC%EC%9A%A9%EB%B2%95/
+
+git push origin master
+
+//fatal: The current branch master has no upstream branch. 브랜치가 원격저장소에 없을경우 발생
+git push -u origin master //-u 원격저장소에 master라는 branch를 생성하고 push한다.
+
+// ! [rejected]        master -> master (fetch first) 이미 변경된 파일이 원격저장소에 있을경우 발생
+git pull origin master
+
+
+//pull - 원격저장소의 내용을 가져와 로컬저장소의 내용과 자동으로 병합작업을 수행한다.
+//fetch - 원격저장소의 내용을 확인만 하고 로컬저장소의 내용과 병합작업을 수행하지 않는다.
+
+
+* error: failed to push some refs to 'https://github.com/pj6563/Online-Glasses.git'
+
+hint: Updates were rejected because the tip of your current branch is behind
+
+hint: its remote counterpart. Integrate the remote changes (e.g.
+
+hint: 'git pull ...') before pushing again.
+
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+혹시 push할 때  다음과 같은 오류가 났다면 아마 위에서 말한 원격 저장소와 로컬 저장소의 상태가 달라서 나는 오류일 것이다.
+그러니 pull을 먼저 해주어 둘의 상태를 같게 한 다음 push를 해준다
+
+그리고 'git status'를 통해서 현재 git의 상태를 알 수 있으니 오류 해결에 적극 이용
+하기 바란다!
+
+
+출처: https://dh-dh.tistory.com/47 [자비스]
