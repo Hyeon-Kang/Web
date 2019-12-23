@@ -4,14 +4,23 @@ import './Movie.css';
 
 
 
+
+
 class Movie extends Component {
 
     static propTypes = {
         title: PropTypes.string.isRequired,
         poster: PropTypes.string.isRequired
     }
+    componentWillMount() {
+        console.log('will Mount')
+    }
 
+    componentDidMount() {
+        console.log('di Mount')
+    }
     render() {
+        console.log('did render')
 
         return (
             <div>
