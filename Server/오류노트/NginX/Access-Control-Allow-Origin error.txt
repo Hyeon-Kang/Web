@@ -1,0 +1,14 @@
+오후 8:44 2019-12-08
+카테고리 Nginx , Server to Server로 B서버가 A서버의 텍스트를 로드할 때
+
+XM.... Access-Control-Allow-Origin 오류 발생!
+
+해결책
+
+location /ads {
+    add_header "Access-Control-Allow-Origin" "*";
+    ...
+    try_files $uri $uri/ /index.php?$args;
+}
+
+원인 : 보안문제 (접근제어)
