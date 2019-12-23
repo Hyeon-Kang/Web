@@ -40,23 +40,25 @@ class App extends Component {
 
     componentDidMount(){
         setTimeout(() => {
-            // this.state.greeting = 'something' 잘못된 예시
             this.setState({
-                greeting: 'Hello again! '// 5000ms 후에 helloo -> hello again!으로 갱신
+                movies: [
+                    ...this.state.movies, // 이 부분을 삭제하면 4초 후 새로 우가가 아닌 대체가 되버림
+                    {
+                        title: "Trainspotting",
+                        poster: "https://upload.wikimedia.org/wikipedia/en/7/71/Trainspotting_ver2.jpg"
+                    }
+                ]
             })
-        }, 5000)
-
-        setTimeout(function() {
-            console.log('hello my console!')
-        }, 3000)
+        }, 4000)
     }
+
     render() {
         return (
             <div className="App">
-                {this.state.greeting}
-                {this.state.movies.map((movie, index) => {
-                    return <Movie title={movie.title} poster={movie.poster} key={index} />
-                })}
+            {this.state.greeting}
+            {this.state.movies.map((movie, index) => {
+                return <Movie title={movie.title} poster={movie.poster} key={index} />
+            })}
             </div>
         )
     }
