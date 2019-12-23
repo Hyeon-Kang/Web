@@ -13,14 +13,13 @@ class Movie extends Component {
         poster: PropTypes.string.isRequired
     }
     componentWillMount() {
-        console.log('will Mount')
+
     }
 
     componentDidMount() {
-        console.log('di Mount')
+
     }
     render() {
-        console.log('did render')
 
         return (
             <div>
@@ -36,7 +35,7 @@ class MoviePoster extends Component {
         poster: PropTypes.string.isRequired
     }
     render() {
-        console.log(this.props)
+        
         return (
             <img src={this.props.poster} />
         );

@@ -60,3 +60,18 @@ function App() {
 
 
 state, props
+
+
+
+state를 가진 컴포넌트(스마트 컴포넌트), state가 없는 컴포넌트(props만 있음)
+
+AJX Asynchronouse Javescript
+
+api 의 데이터를 불러오자
+
+fetch, promise
+fetch는 ajax를 통해 데이터를 간단하게 불러올 수 있다.
+
+Await
+
+Async

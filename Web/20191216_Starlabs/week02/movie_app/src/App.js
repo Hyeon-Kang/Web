@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Movie from './Movie';
+import Movie from './Movie.js';
 
 
 
@@ -13,54 +13,30 @@ import Movie from './Movie';
 class App extends Component {
     // Render : componentWillMount() -> render() -> componentDidMount()
     // Update componentWillReciveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> component()
-    state = {
-        greeting: 'helloo',
-        movies: [
-            {
-                title : "Matrix",
-                poster: "https://img1.daumcdn.net/thumb/C155x225/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F66693b11a2874f5aa3f4d250b1830b261568780107021"
-            },
-            {
-                title : "Full Metal Jacket",
-                poster: "https://dhgywazgeek0d.cloudfront.net/watcha/image/upload/c_fill,h_700,q_80,w_490/v1485423697/bvacgjpzkogqdbcbo506.jpg"
-            },
-            {
-                title : "Old boy",
-                poster : "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Oldboy_2013_film_poster.jpg/220px-Oldboy_2013_film_poster.jpg"
-            },
-            {
-                title : "Star wars",
-                poster: "https://i.ytimg.com/vi/ZXva4Z0zVK8/maxresdefault.jpg"
-            }
-
-        ]
-    }
-
-    // 컴포넌트 내부 자원은 state 속성이 붙는다.
+    state = {}
 
     componentDidMount(){
-        setTimeout(() => {
-            this.setState({
-                movies: [
-                    ...this.state.movies, // 이 부분을 삭제하면 4초 후 새로 우가가 아닌 대체가 되버림 ex)인피니티 스크롤 
-                    {
-                        title: "Trainspotting",
-                        poster: "https://upload.wikimedia.org/wikipedia/en/7/71/Trainspotting_ver2.jpg"
-                    }
-                ]
-            })
-        }, 4000)
+        fetch('https://yts.lt/api/v2/list_movies.json?sort_by=like_count')
+        //.then(response => console.log(response))
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(err => console.log(err))
+    }
+
+    // 렌더링 실행함수
+    _renderMovies = () => {
+        const movies = this.state.movies.map((movie, index) => {
+            return <Movie title={movie.title} poster={movie.poster} key={index} />
+        })
+        return movies
     }
 
     render() {
         return (
             <div className="App">
-            {this.state.greeting}
-            {this.state.movies.map((movie, index) => {
-                return <Movie title={movie.title} poster={movie.poster} key={index} />
-            })}
+                {this.state.movies ? this._renderMovies() : 'Loading'}
             </div>
-        )
+        );
     }
 }
 
