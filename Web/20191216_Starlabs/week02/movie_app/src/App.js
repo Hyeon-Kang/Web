@@ -42,7 +42,7 @@ class App extends Component {
         setTimeout(() => {
             this.setState({
                 movies: [
-                    ...this.state.movies, // 이 부분을 삭제하면 4초 후 새로 우가가 아닌 대체가 되버림
+                    ...this.state.movies, // 이 부분을 삭제하면 4초 후 새로 우가가 아닌 대체가 되버림 ex)인피니티 스크롤
                     {
                         title: "Trainspotting",
                         poster: "https://upload.wikimedia.org/wikipedia/en/7/71/Trainspotting_ver2.jpg"
