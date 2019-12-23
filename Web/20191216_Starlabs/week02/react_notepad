@@ -35,3 +35,28 @@ start, build, test, eject
 
 
 jsx는 리액트 ㅓㅁ포넌트를 다룰 때 사용ㅎㅁ
+
+
+기본적으로  사용자가 건드릴 요소는 src의 App.js, App.css
+                                   public의 index.html 뿐이다.
+
+index.html의 <div id="root"></div> 구획이 App.js 의
+
+function App() {
+  return (
+    <div className="App">
+        hello haha
+    </div>
+  );
+}
+
+안에 들어가는 내용을 출력해준다.
+
+
+강의에서는 extend component를 사용하나
+
+현재 실습본에서는 function으로 쓰며 render 항목도 쓰지 않게 되었다.
+
+
+
+state, props
