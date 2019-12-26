@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "create-react-app": "^3.3.0",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3"
+  }
+}
