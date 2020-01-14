@@ -28,6 +28,7 @@ Resource Owner(User) - Client - Resource Server
 Resource Owner 는 Resource Server 와 통신하며
 Client가 어느 권한을 요구한는지 데이터 전달 및 허가를 구함
 
+(Resource Server와 Authorization Server를 동일하다는 가정 하에 진행)
 RS는 RO의 id와 secret 값을 받고 authorization code를 발급해준다.
 RO는 client와 교신하여 id, secret, authorization code를 전해주고
 Client는 RO에게 받은 세 값 RS에게 전달, RS는 (id, secret, url, auth code)가 일치함을 확인하면
@@ -76,3 +77,27 @@ api_url_query?access_token={actoken}
 
 OAuth 2.0 guide
 출처 : https://developers.google.com/identity/protocols/OAuth2WebServer
+
+
+ex)
+Google's OAuth 2.0 endpoint is at https://accounts.google.com/o/oauth2/v2/auth.
+This endpoint is accessible only over HTTPS. Plain HTTP connections are refused.
+
+The Google authorization server supports the following query string parameters
+for web server applications:
+
+https://accounts.google.com/o/oauth2/v2/auth?
+ scope = https % 3A // www.googleapis.com / auth / drive.metadata.readonly &
+ access_type = offline &
+ include_granted_scopes = true &
+ state = state_parameter_passthrough_value &
+ redirect_uri = https % 3A // oauth2.example.com / callback &
+ response_type = code &
+ client_id = 클라이언트 _id
+
+
+
+ex) Access Code Response
+https://oauth2.example.com/auth?code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7
+
+생활코딩 api 접속 참고링크 : https://www.youtube.com/watch?v=9vh4VGjaMco
