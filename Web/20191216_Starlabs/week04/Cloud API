@@ -7,10 +7,10 @@ Cloud의 모든 자원을 Console을 이용하지 않고 프로그램을 통해 
 
 OAuth2.0
 
-client = 제 3자 (정보 요구)
-resource owner = 리소스의 소유주 (일반 사용자)
+client = 애플리케이션 제공자
+resource owner = 사용자(User)
 resource server = API를 통해 리소스를 제공 (구글의 리소스 저장 서버)
-authorization server = 인증 담당으로 access token을 client 에게 보내줌 (구글의 인증 담당 서버)
+authorization server = 인증 담당 서버
 
 리소스 서버와 인증 서버는 같은 서버일 수도 있음
 
