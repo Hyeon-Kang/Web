@@ -31,8 +31,8 @@ Client가 어느 권한을 요구한는지 데이터 전달 및 허가를 구함
 (Resource Server와 Authorization Server를 동일하다는 가정 하에 진행)
 RS는 RO의 id와 secret 값을 받고 authorization code를 발급해준다.
 RO는 client와 교신하여 id, secret, authorization code를 전해주고
-Client는 RO에게 받은 세 값 RS에게 전달, RS는 (id, secret, url, auth code)가 일치함을 확인하면
-Access token을 발급 후 client에게 응답해준다.
+Client는 RO에게 받은 세 값 RS에게 전달, RS는 (id, secret, url, auth code)가
+일치함을 확인하면 Access token을 발급 후 client에게 응답해준다.
 RS가 발급한 AccessToekn은 접근한 유저에 대한 Client 접근 권한을 보장한다.
 
 []참고 자료] https://opentutorials.org/course/3405/22010
@@ -101,3 +101,8 @@ ex) Access Code Response
 https://oauth2.example.com/auth?code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7
 
 생활코딩 api 접속 참고링크 : https://www.youtube.com/watch?v=9vh4VGjaMco
+
+HTTP get 접근 예시
+참고 링크 (google api document):
+https://developers.google.com/identity/protocols/OAuth2WebServer#http-get-examples
+>> https://www.googleapis.com/drive/v2/files?access_token=<access_token>
